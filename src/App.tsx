@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {FC} from 'react';
+import {Route, Routes} from "react-router-dom";
+import LoginPage from "./pages/auth/LoginPage";
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-    </div>
+    <Routes>
+      <Route path="/"/>
+      <Route path="login" element={<LoginPage/>}/>
+    </Routes>
   );
 }
 
