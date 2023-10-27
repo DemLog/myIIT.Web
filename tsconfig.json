@@ -8,6 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -18,9 +19,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/common/*"],
+      "@pages/*": ["components/pages/*"],
+      "@routes/*": ["components/routes/*"],
+      "@assets/*": ["assets/*"],
+      "@models/*": ["core/models/*"],
+      "@stores/*": ["core/stores/*"],
+      "@core/*": ["core/*"]
+    }
   },
+  "extends": "tsconfig.paths.json",
   "include": [
-    "src"
+    "src",
+    "src/core/types"
   ]
 }

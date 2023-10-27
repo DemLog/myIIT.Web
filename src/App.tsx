@@ -1,14 +1,11 @@
 import React, {FC} from 'react';
-import {Route, Routes} from "react-router-dom";
-import LoginPage from "./pages/auth/LoginPage";
+
+import {RoutesMain} from "@routes/main";
 
 const App: FC = () => {
-  return (
-    <Routes>
-      <Route path="/"/>
-      <Route path="login" element={<LoginPage/>}/>
-    </Routes>
-  );
+    return (
+        <RoutesMain/>
+    );
 }
 
 export default App;
