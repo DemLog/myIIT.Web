@@ -1,14 +1,18 @@
 import React, {FC} from 'react';
-import {Route, Routes} from "react-router-dom";
-import LoginPage from "./pages/auth/LoginPage";
+
+import {RoutesMain} from "@routes/main";
+
+import {RootStore} from "@stores/rootStore";
+import {StoreProvider} from "@stores/useStore";
+
+const globalStore = new RootStore();
 
 const App: FC = () => {
-  return (
-    <Routes>
-      <Route path="/"/>
-      <Route path="login" element={<LoginPage/>}/>
-    </Routes>
-  );
+    return (
+        <StoreProvider store={globalStore}>
+            <RoutesMain/>
+        </StoreProvider>
+    );
 }
 
 export default App;
