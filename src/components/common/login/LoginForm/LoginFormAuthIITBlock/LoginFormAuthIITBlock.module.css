@@ -1,0 +1,14 @@
+.form_iit_moodle_block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.025em;
+}
+
+@media (max-width: 1280px) and (min-width: 579px){
+
+}
+
+@media (max-width: 579px) {
+
+}
