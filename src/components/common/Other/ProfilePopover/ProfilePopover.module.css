@@ -1,0 +1,14 @@
+.popover_main {
+    display: flex;
+}
+
+.popover_name_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popover_expand_more_block {
+    display: flex;
+    align-items: center;
+}
