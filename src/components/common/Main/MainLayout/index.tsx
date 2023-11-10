@@ -36,7 +36,7 @@ export const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) =>
                     </Box>
                 }
 
-                <Box className={classes.content_page}><Outlet/></Box>
+                <Box className={classes.content_page} mr={!matchesMobile && !matchesPC ? "md" : 0}><Outlet/></Box>
             </Box>
         </Box>
     );
