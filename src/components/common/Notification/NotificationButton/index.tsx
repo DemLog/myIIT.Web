@@ -8,7 +8,7 @@ import notificationFillIcon from "@assets/images/icons/notifications_fill.png";
 
 export const NotificationButton: React.FC<NotificationButtonProps> = (props: NotificationButtonProps) => {
     return (
-        <ActionIcon color="#F6F6F6" size="lg" radius="sm">
+        <ActionIcon color="#F6F6F6" size="lg" radius={props.radius}>
             <Image w="auto" h={28} fit="contain" src={notificationFillIcon}/>
         </ActionIcon>
     );

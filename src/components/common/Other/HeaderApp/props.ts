@@ -1,1 +1,4 @@
-export interface HeaderAppProps {}
+import {ReactNode} from "react";
+
+export interface HeaderAppProps {
+}
