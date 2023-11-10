@@ -12,10 +12,29 @@
 
 .left_side {
     min-width: 330px;
+}
+
+.left_side_tablet {
+    width: 80px;
+    background: #F9F9F9;
     position: fixed;
+    margin-top: 62px;
+    height: calc(100vh - 62px);
 }
 
 .content_page {
-    margin-left: calc(330px + 1rem * var(--mantine-scale));
     width: 100%;
+}
+
+@media (max-width: 1280px) and (min-width: 579px){
+    .content_page {
+        margin-left: calc(80px + 1rem * var(--mantine-scale));
+    }
+
+}
+
+@media (max-width: 579px) {
+    .content {
+        margin-top: 66px;
+    }
 }
