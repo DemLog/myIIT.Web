@@ -1,0 +1,28 @@
+.main_container {
+    width: 100%;
+    background: white;
+    border-radius: var(--mantine-radius-lg);
+}
+
+.content {
+    background: #F8F8F8;
+    border-radius: var(--mantine-radius-lg);
+}
+
+.profile_block {
+    display: flex;
+    align-items: center;
+}
+
+.level_block {
+    letter-spacing: -.045em;
+}
+
+.profile_name_block {
+    letter-spacing: -.055em;
+}
+
+.profile_name {
+    display: flex;
+    align-items: center;
+}

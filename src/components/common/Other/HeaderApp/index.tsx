@@ -35,7 +35,7 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                             <Image src={myIITLogoImg} h={(!matchesPC && !matchesMobile) ? 40 : 46} w="auto"
                                    fit="contain"/>
                         </Box>
-                        <Box className={classes.header_content} ml={180}>
+                        <Box className={classes.header_content} ml={200}>
                             {matchesPC && <SearchField/>}
                             <Box className={classes.header_content_right_block}>
                                 <Group gap="xs" mr="lg">

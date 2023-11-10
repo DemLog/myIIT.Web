@@ -6,6 +6,8 @@ import {Box} from "@mantine/core";
 
 export const DashboardPage: React.FC<DashboardPageProps> = (props: DashboardPageProps) => {
     return (
-        <Box/>
+        <Box style={{height: "100px", background: "white"}}>
+            fgfgffgsfd
+        </Box>
     );
 };
