@@ -12,6 +12,7 @@ import {ProfileCard} from "@components/Main/ProfileCard";
 import {NavigationBlock} from "@components/Main/NavigationBlock";
 import {FooterLinksBlock} from "@components/Main/FooterLinksBlock";
 import {NavigationBlockTablet} from "@components/Main/NavigationBlockTablet";
+import {BottomBar} from "@components/Main/BottomBar";
 
 export const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
@@ -45,6 +46,7 @@ export const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) =>
 
                 <Box className={classes.content_page} mr={!matchesMobile && !matchesPC ? "md" : 0}><Outlet/></Box>
             </Box>
+            {matchesMobile && <BottomBar />}
         </Box>
     );
 };
