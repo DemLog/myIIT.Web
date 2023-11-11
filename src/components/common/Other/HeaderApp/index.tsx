@@ -2,8 +2,8 @@ import React from "react";
 import {HeaderAppProps} from "./props";
 import classes from "./HeaderApp.module.css";
 
-import {ActionIcon, Box, Container, Group, Image} from "@mantine/core";
-import {useMediaQuery} from "@mantine/hooks";
+import {ActionIcon, Box, Burger, Container, Group, Image} from "@mantine/core";
+import {useDisclosure, useMediaQuery} from "@mantine/hooks";
 
 import myIITLogoImg from "@assets/images/logo/myIIT-logo-with-background.png";
 import bookmarkFillIcon from "@assets/images/icons/bookmark_fill.png";
@@ -18,16 +18,15 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
     const matchesMobile = useMediaQuery('(max-width: 579px)')
 
+    const [openedMenu, { toggle: setOpenedMenu }] = useDisclosure();
+
     return (
         !matchesMobile ?
             <Box className={classes.header_main}>
                 <Container className={classes.header_container} fluid mx={(!matchesPC && !matchesMobile) ? "sm" : "xl"}>
                     {(!matchesPC && !matchesMobile) &&
                         <Box className={classes.header_menu_block} mr="lg">
-                            <ActionIcon className={classes.header_menu_button} variant="transparent" size="xl"
-                                        aria-label="Menu">
-                                <Image src={menuFillIcon} h={54} w="auto" fit="contain"/>
-                            </ActionIcon>
+                            <Burger opened={openedMenu} size="lg" onClick={setOpenedMenu} aria-label="Menu" />
                         </Box>
                     }
                     <Box className={classes.header_container_content}>
