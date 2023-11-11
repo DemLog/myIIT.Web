@@ -33,6 +33,15 @@
     width: 100%;
 }
 
+.drawer_content {
+    border-radius: 0 11px 13px 0;
+    box-shadow: 4px 0px 4px 0px rgba(34, 60, 80, 0.14);
+}
+
+.drawer_inner {
+    filter: blur(8px);
+}
+
 @media (max-width: 1280px) and (min-width: 579px){
     .header_menu_block {
         display: flex;
