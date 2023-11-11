@@ -9,9 +9,9 @@ export const FooterLinksBlock: React.FC<FooterLinksBlockProps> = (props: FooterL
     return (
         <Box className={classes.main_container}>
             <Group className={classes.links_box}>
-                <Text className={classes.footer_link} component="a" href="#" fw={300}>Регламент</Text>
-                <Text className={classes.footer_link} component="a" href="#" fw={300}>О программе</Text>
-                <Text className={classes.footer_link} component="a" href="#" fw={300}>Разработчикам</Text>
+                <Text className={classes.footer_link} component="a" href="#" fw={300} td="underline">Регламент</Text>
+                <Text className={classes.footer_link} component="a" href="#" fw={300} td="underline">О программе</Text>
+                <Text className={classes.footer_link} component="a" href="#" fw={300} td="underline">Разработчикам</Text>
             </Group>
             <Box className={classes.copyright_box}>
                 <Text fw={300}>Создано командой JSOL | myIIT © 2023</Text>

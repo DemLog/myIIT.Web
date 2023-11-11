@@ -39,7 +39,7 @@ export const dataServiceLinks: IServiceLink[] = [
         icon: scheduleIcon
     },
     {
-        label: "Мероприятия",
+        label: "Ивенты",
         url: "events",
         icon: eventNoteIcon
     },

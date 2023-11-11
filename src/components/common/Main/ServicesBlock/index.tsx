@@ -32,7 +32,8 @@ const ServicesBlockComponent: React.FC<ServicesBlockProps> = (props: ServicesBlo
                 )}
             </Grid>
             <Box className={classes.all_services_link_block} mt="xs">
-                <Text className={classes.open_all_services_link} component="a" href="#" fw={300}>Все сервисы</Text>
+                <Text className={classes.open_all_services_link} component="a" href="#" fw={300} td="underline">Все
+                    сервисы</Text>
             </Box>
         </Box>
     );
