@@ -6,9 +6,11 @@ import {observer} from "mobx-react";
 import {useStores} from "@core/hooks";
 
 import {ActionIcon, Box, Grid, Image, Text} from "@mantine/core";
+import {useNavigate} from "react-router-dom";
 
 const ServicesBlockComponent: React.FC<ServicesBlockProps> = (props: ServicesBlockProps) => {
     const {navigationStore} = useStores();
+    const navigate = useNavigate();
 
     const servicesList = navigationStore.getLinksMenu().slice(5, 13);
 
@@ -19,7 +21,10 @@ const ServicesBlockComponent: React.FC<ServicesBlockProps> = (props: ServicesBlo
                     <Grid.Col span={3}>
                         <ActionIcon className={classes.grid_element} style={{background: value.bgColor}} size="100%"
                                     radius="xl"
-                                    onClick={() => navigationStore.handleClickLink(idx + 5, () => props.setActive(idx + 5))}>
+                                    onClick={() => navigationStore.handleClickLink(idx + 5, () => {
+                                        props.setActive(idx + 5)
+                                        navigate(`/${value.url}`)
+                                    })}>
                             <Image className={classes.grid_element_icon} h={42} w="auto" fit="contain"
                                    src={value.icon}/>
                         </ActionIcon>

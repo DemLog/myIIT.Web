@@ -4,6 +4,7 @@ import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import {LoginPage} from "@pages/Login";
 import {MainLayout} from "@components/Main/MainLayout";
 import {DashboardPage} from "@pages/Dashboard";
+import {NotFoundPage} from "@pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -15,8 +16,8 @@ const router = createBrowserRouter([
                 element: <Navigate to="/dashboard" />
             },
             {
-                path: "dashboard",
-                element: <DashboardPage />
+                path: "*",
+                element: <NotFoundPage />
             }
         ]
     },

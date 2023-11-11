@@ -6,9 +6,11 @@ import {observer} from "mobx-react";
 
 import {Box, Image, NavLink, Text} from "@mantine/core";
 import {useStores} from "@core/hooks";
+import {useNavigate} from "react-router-dom";
 
 const NavigationBlockListComponent: React.FC<NavigationBlockListProps> = (props: NavigationBlockListProps) => {
     const {navigationStore} = useStores();
+    const navigate = useNavigate();
 
     const mainServicesList = navigationStore.getLinksMenu().slice(0, 5);
 
@@ -31,6 +33,7 @@ const NavigationBlockListComponent: React.FC<NavigationBlockListProps> = (props:
                     mb={6}
                     onClick={() => navigationStore.handleClickLink(idx, () => {
                         props.setActive(idx)
+                        navigate(`/${value.url}`)
                     })}
                 />
             )}
