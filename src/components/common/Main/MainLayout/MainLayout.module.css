@@ -16,7 +16,7 @@
 }
 
 .left_side_tablet {
-    width: 80px;
+    width: 90px;
     background: #F9F9F9;
     position: fixed;
     margin-top: 62px;
@@ -30,7 +30,7 @@
 
 @media (max-width: 1280px) and (min-width: 579px){
     .content_page {
-        margin-left: calc(80px + 1rem * var(--mantine-scale));
+        margin-left: calc(90px + 1rem * var(--mantine-scale));
     }
 
 }

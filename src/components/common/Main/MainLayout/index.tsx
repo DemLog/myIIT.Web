@@ -11,6 +11,7 @@ import {LoaderScreen} from "@components/Other/Loader/LoaderScreen";
 import {ProfileCard} from "@components/Main/ProfileCard";
 import {NavigationBlock} from "@components/Main/NavigationBlock";
 import {FooterLinksBlock} from "@components/Main/FooterLinksBlock";
+import {NavigationBlockTablet} from "@components/Main/NavigationBlockTablet";
 
 export const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
@@ -27,7 +28,8 @@ export const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) =>
             <LoaderScreen visible={loaderVisible}/>
             <HeaderApp/>
             {!matchesPC && !matchesMobile &&
-                <Box className={classes.left_side_tablet}>
+                <Box className={classes.left_side_tablet} py="xs" px={4}>
+                    <NavigationBlockTablet />
                 </Box>
             }
             <Box className={classes.content} mx={matchesPC ? "xl" : 0} px={matchesPC ? "md" : 0}>
