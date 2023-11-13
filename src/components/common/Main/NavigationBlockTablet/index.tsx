@@ -12,23 +12,21 @@ const NavigationBlockTabletComponent: React.FC<NavigationBlockTabletProps> = (pr
     const {navigationStore} = useStores();
 
     const mainServicesList = navigationStore.getLinksMenu().slice(0, 5);
-    const [activeLink, setActiveLink] = useState(navigationStore.getActive());
     const navigate = useNavigate();
 
     useEffect(() => {
-    }, [activeLink]);
+    }, [navigationStore.active]);
 
     return (
         <Stack className={classes.main_container} align="center" gap={40} py="xl">
             {mainServicesList.map((value, idx) =>
                 <ActionIcon className={classes.nav_link} variant="transparent" color="#5B6CF0"
                             onClick={() => navigationStore.handleClickLink(idx, () => {
-                                setActiveLink(idx)
                                 navigate(`/${value.url}`)
                             })}>
-                    <Image className={activeLink === idx ? classes.nav_link_icon_active : classes.nav_link_icon}
+                    <Image className={navigationStore.active === idx ? classes.nav_link_icon_active : classes.nav_link_icon}
                            src={value.icon} h={52} w="auto" fit="contain"/>
-                    {activeLink === idx &&
+                    {navigationStore.active === idx &&
                         <Text className={classes.nav_link_text} fw={600} size="xs">{value.label}</Text>}
                 </ActionIcon>
             )}

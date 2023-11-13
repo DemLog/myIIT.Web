@@ -13,13 +13,11 @@ import {ServicesBlock} from "@components/Main/ServicesBlock";
 const NavigationBlockComponent: React.FC<NavigationBlockProps> = (props: NavigationBlockProps) => {
     const {navigationStore} = useStores();
 
-    const [activeLink, setActiveLink] = useState(navigationStore.getActive());
-
     return (
         <Box className={classes.main_container} p="md" onClick={() => props.closeDrawer ? props.closeDrawer() : null}>
-            <NavigationBlockList active={activeLink} setActive={setActiveLink}/>
+            <NavigationBlockList/>
             <Divider my="sm"/>
-            <ServicesBlock setActive={setActiveLink}/>
+            <ServicesBlock/>
         </Box>
     );
 };
