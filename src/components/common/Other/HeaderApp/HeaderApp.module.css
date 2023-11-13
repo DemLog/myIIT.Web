@@ -3,6 +3,7 @@
     height: 62px;
     background: white;
     position: fixed;
+    z-index: 1000;
 }
 
 .header_container {

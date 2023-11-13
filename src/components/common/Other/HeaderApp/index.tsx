@@ -29,7 +29,7 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                 <Drawer opened={openedMenu} onClose={close} size="sm"
                         classNames={{content: classes.drawer_content}}>
                     <ProfileCard />
-                    <NavigationBlock fullComponent closeDrawer={close}/>
+                    <NavigationBlock closeDrawer={close}/>
                     <FooterLinksBlock />
                 </Drawer>
                 <Container className={classes.header_container} fluid mx={(!matchesPC && !matchesMobile) ? "sm" : "xl"}>
