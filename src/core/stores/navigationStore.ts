@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import {observable, action, makeAutoObservable} from 'mobx';
 
 import {IServiceLink} from "@models/service/IServiceLink";
 
@@ -20,6 +20,7 @@ import test8Icon from "@assets/images/icons/test/sports_soccer_FILL0_wght400_GRA
 export interface INavigationStore {
     services: IServiceLink[];
     active: number;
+    namePage: string;
 }
 
 export const dataServiceLinks: IServiceLink[] = [
@@ -101,32 +102,43 @@ export const dataServiceLinks: IServiceLink[] = [
 
 export class NavigationStore implements INavigationStore {
 
-    @observable services: IServiceLink[];
-    @observable active: number;
+    services: IServiceLink[];
+    active: number;
+    namePage: string;
 
     constructor() {
         this.active = 0;
         this.services = dataServiceLinks;
+        this.namePage = "Главный экран";
+        makeAutoObservable(this);
     }
 
-    @action getActive = (): number => (
+    getActive = (): number => (
         this.active
     );
 
-    @action getLinksMenu = (): IServiceLink[] => (
+    getLinksMenu = (): IServiceLink[] => (
         this.services
     );
 
-    @action setActive = (index: number) => {
+    setActive = (index: number) => {
         this.active = index;
     };
 
-    @action getLinkFromIndex = (index: number) => (
+    getLinkFromIndex = (index: number) => (
         this.services.find((value, idx) => idx === index)
     );
 
-    @action handleClickLink = (index: number, handleNavigation: () => void): void => {
+    handleClickLink = (index: number, handleNavigation: () => void): void => {
         this.active = index;
         handleNavigation();
+    };
+
+    getNamePage = (): string => (
+        this.namePage
+    );
+
+    setNamePage = (name: string) => {
+        this.namePage = name;
     };
 }

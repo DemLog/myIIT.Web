@@ -35,6 +35,7 @@
     "@mantine/hooks": "^7.1.7",
     "@mantine/modals": "^7.1.7",
     "@mantine/notifications": "^7.1.7",
+    "@splinetool/react-spline": "^2.2.6",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
@@ -50,6 +51,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
+    "react-xmasonry": "^3.0.6",
     "sort-by": "^1.2.0",
     "typescript": "^4.9.5",
     "web-vitals": "^3.5.0"
