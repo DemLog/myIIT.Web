@@ -5,9 +5,9 @@ import classes from "./LoginPage.module.css";
 import {Box, Image} from "@mantine/core";
 import {useDisclosure, useMediaQuery} from "@mantine/hooks";
 
-import {LoginSideGraphics} from "@components/login/LoginSideGraphics";
-import {LoginForm} from "@components/login";
-import {LoginUpdatePasswordBlock} from "@components/login/LoginUpdatePasswordBlock";
+import {LoginSideGraphics} from "@components/Login/LoginSideGraphics";
+import {LoginForm} from "@components/Login";
+import {LoginUpdatePasswordBlock} from "@components/Login/LoginUpdatePasswordBlock";
 import {LoaderScreen} from "@components/Other/Loader/LoaderScreen";
 
 import myIITLogoImg from "@assets/images/logo/myIIT-logo.png";
@@ -19,7 +19,7 @@ export const LoginPage: React.FC<LoginPageProps> = (props: LoginPageProps) => {
     const matchesMobile = useMediaQuery('(max-width: 579px)')
 
     useEffect(() => {
-        setTimeout(() => loaderToggle(), 1500);
+        setTimeout(() => loaderToggle(), 1000);
     }, []);
 
     return (
