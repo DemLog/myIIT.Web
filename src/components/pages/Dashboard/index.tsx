@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {DashboardPageProps} from "./props";
 import classes from "./DashboardPage.module.css";
 
@@ -11,7 +11,9 @@ import {DashboardWidget} from "@components/Dashboard/DashboardWidget";
 
 import {observer} from "mobx-react";
 import {useStores} from "@core/hooks";
+
 import {DashboardWidgetUserLevel} from "@components/Dashboard/DashboardWidget/DashboardWidgetUserLevel";
+import {DashboardWidgetServices} from "@components/Dashboard/DashboardWidget/DashboardWidgetServices";
 
 const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
@@ -26,18 +28,28 @@ const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPa
     return (
         <Box className={classes.main_container}>
             {matchesMobile &&
-                <Box className={classes.mobile_subheader}>
+                <Box className={classes.mobile_subheader} mt={-10}>
                     <DashboardWidgetWelcome/>
                 </Box>
             }
 
-            <Box className={classes.content} mt={matchesMobile ? 80 : 0} mb={matchesMobile ? 62 : 0}>
+            <Box className={classes.content} mt={matchesMobile ? "xs" : 0} mb={matchesMobile ? 62 : 0}>
                 <XMasonry center={false} maxColumns={10} targetBlockWidth={400} smartUpdateCeil={1000}>
                     {matchesMobile &&
                         <XBlock width={4}>
                             <DashboardWidget
                                 background="white">
                                 <DashboardWidgetUserLevel/>
+                            </DashboardWidget>
+                        </XBlock>
+                    }
+
+                    {matchesMobile &&
+                        <XBlock width={4}>
+                            <DashboardWidget
+                                header="Сервисы"
+                                background="white">
+                                <DashboardWidgetServices />
                             </DashboardWidget>
                         </XBlock>
                     }
