@@ -1,12 +1,14 @@
-import React, {useEffect} from "react";
+import React, {Fragment, useEffect} from "react";
 import {NotFoundPageProps} from "./props";
 import classes from "./NotFoundPage.module.css";
 
 import {Box, Image, Text} from "@mantine/core";
+import {useDisclosure} from "@mantine/hooks";
 
 import rickImage from "@assets/images/rick_art.png";
 import pepegaImage from "@assets/images/pepega_cry.png";
 import motherWImage from "@assets/images/mother_whore.png";
+
 import {observer} from "mobx-react";
 import {useStores} from "@core/hooks";
 
@@ -16,14 +18,19 @@ const NotFoundPageComponent: React.FC<NotFoundPageProps> = (props: NotFoundPageP
 
     const {navigationStore} = useStores();
 
+    const [loaderVisible, {open: loaderToggle}] = useDisclosure(false);
+
     useEffect(() => {
         navigationStore.setNamePage("Не найдено");
+        setTimeout(() => loaderToggle(), 100);
     }, []);
 
     return (
         <Box className={classes.main_container}>
-            <Image w={300} fit="contain" src={randomImage}/>
-            <Text size="xl" fw="500" ta="center">Упс, а нет такой страницы! Или разрабы дол*****...</Text>
+            {loaderVisible && <Fragment>
+                <Image w={300} fit="contain" src={randomImage}/>
+                <Text size="xl" fw="500" ta="center">Упс, а нет такой страницы! Или разрабы дол*****...</Text>
+            </Fragment>}
         </Box>
     );
 };
