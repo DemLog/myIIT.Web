@@ -20,7 +20,7 @@ export const LoginPage: React.FC<LoginPageProps> = (props: LoginPageProps) => {
     useDocumentTitle("Авторизация - myIIT");
 
     useEffect(() => {
-        setTimeout(() => loaderToggle(), 1500);
+        setTimeout(() => loaderToggle(), 1000);
     }, []);
 
     return (
