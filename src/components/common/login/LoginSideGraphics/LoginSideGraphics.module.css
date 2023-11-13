@@ -1,14 +1,5 @@
 .main_container {
-    background: #15273D;
-    box-sizing: border-box;
     width: 50%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0 20px 20px 0;
 }
 
-.main_image {
-    height: 90%;
-}

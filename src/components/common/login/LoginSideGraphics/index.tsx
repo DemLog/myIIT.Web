@@ -1,20 +1,15 @@
 import React from "react";
-import {LoginSideGraphicsProps} from "./props";
+import {LoginSideGraphicsProps} from "@components/login/LoginSideGraphics/props";
 import classes from "./LoginSideGraphics.module.css";
+import Spline from '@splinetool/react-spline';
 
-import {Box, Image} from "@mantine/core";
-
-import spaceManImg from "@assets/images/login/space_man.png";
+import {Box} from "@mantine/core";
 
 export const LoginSideGraphics: React.FC<LoginSideGraphicsProps> = (props: LoginSideGraphicsProps) => {
 
     return (
-        <Box className={classes.main_container}>
-            <Image className={classes.main_image}
-                   src={spaceManImg}
-                   fit="contain"
-                   w="auto"
-            />
+        <Box className={classes.main_container} >
+            <Spline scene="https://prod.spline.design/AroZ2lkoXHyyD6rb/scene.splinecode" />
         </Box>
     )
 };
