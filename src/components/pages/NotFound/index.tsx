@@ -3,7 +3,7 @@ import {NotFoundPageProps} from "./props";
 import classes from "./NotFoundPage.module.css";
 
 import {Box, Image, Text} from "@mantine/core";
-import {useDisclosure} from "@mantine/hooks";
+import {useDisclosure, useDocumentTitle} from "@mantine/hooks";
 
 import rickImage from "@assets/images/rick_art.png";
 import pepegaImage from "@assets/images/pepega_cry.png";
@@ -19,6 +19,8 @@ const NotFoundPageComponent: React.FC<NotFoundPageProps> = (props: NotFoundPageP
     const {navigationStore} = useStores();
 
     const [loaderVisible, {open: loaderToggle}] = useDisclosure(false);
+
+    useDocumentTitle("Не найдено - myIIT");
 
     useEffect(() => {
         navigationStore.setNamePage("Не найдено");

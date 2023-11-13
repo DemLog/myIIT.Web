@@ -3,7 +3,7 @@ import {DashboardPageProps} from "./props";
 import classes from "./DashboardPage.module.css";
 
 import {Box} from "@mantine/core";
-import {useDisclosure, useMediaQuery} from "@mantine/hooks";
+import {useDisclosure, useDocumentTitle, useMediaQuery} from "@mantine/hooks";
 import {XMasonry, XBlock} from "react-xmasonry";
 
 import {DashboardWidgetWelcome} from "@components/Dashboard/DashboardWidget/DashboardWidgetWelcome";
@@ -22,6 +22,8 @@ const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPa
     const [loaderVisible, {toggle: loaderToggle}] = useDisclosure(false);
 
     const {navigationStore} = useStores();
+
+    useDocumentTitle("Дашборд - myIIT");
 
     useEffect(() => {
         navigationStore.setNamePage("Дашборд");
