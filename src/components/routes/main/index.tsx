@@ -5,6 +5,7 @@ import {LoginPage} from "@pages/Login";
 import {MainLayout} from "@components/Main/MainLayout";
 import {DashboardPage} from "@pages/Dashboard";
 import {NotFoundPage} from "@pages/NotFound";
+import {ProfilePage} from "@pages/Profile";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <DashboardPage />
+            },
+            {
+                path: "/profile",
+                element: <ProfilePage />
             },
             {
                 path: "*",

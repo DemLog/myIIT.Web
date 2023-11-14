@@ -1,0 +1,22 @@
+.main_container {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+}
+
+.content_main {
+    width: 75%;
+}
+
+.content_help_block {
+    width: 25%;
+}
+
+@media (max-width: 579px) {
+    .content {
+        /*margin-top: 80px;*/
+    }
+}
