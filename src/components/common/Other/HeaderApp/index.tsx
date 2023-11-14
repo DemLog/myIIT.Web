@@ -18,6 +18,7 @@ import {FooterLinksBlock} from "@components/Main/FooterLinksBlock";
 import {PopoverApp} from "@components/Other/PopoverApp";
 import expandMoreFillIcon from "@assets/images/icons/expand_more_fill.png";
 import {NotificationPopover} from "@components/Notification/NotificationPopover";
+import {SearchPopover} from "@components/Search/SearchPopover";
 
 export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
@@ -46,12 +47,27 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                                    fit="contain"/>
                         </Box>
                         <Box className={classes.header_content} ml={200}>
-                            {matchesPC && <SearchField/>}
+                            {matchesPC &&
+                                <PopoverApp
+                                    title="Поиск"
+                                    popover={<SearchPopover/>}
+                                    popoverProps={{
+                                        position: "bottom-start",
+                                        width: 350
+                                    }}
+                                >
+                                    <Box className={classes.search_field_box}><SearchField/></Box>
+                                </PopoverApp>
+                            }
                             <Box className={classes.header_content_right_block}>
                                 <Group gap="xs" mr="lg">
                                     <PopoverApp title="Уведомления"
-                                                popover={<NotificationPopover />}
-                                                popoverProps={{width: 580, position: matchesPC ? "bottom-end" : "bottom", offset: 9}}>
+                                                popover={<NotificationPopover/>}
+                                                popoverProps={{
+                                                    width: 580,
+                                                    position: matchesPC ? "bottom-end" : "bottom",
+                                                    offset: 9
+                                                }}>
                                         <Box className={classes.notification_button_box}>
                                             <NotificationButton radius="sm"/>
                                         </Box>

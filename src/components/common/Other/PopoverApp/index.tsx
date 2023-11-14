@@ -15,7 +15,7 @@ export const PopoverApp: React.FC<PopoverAppProps> = (props: PopoverAppProps) =>
             <Popover.Dropdown p={6}>
                 {props.title &&
                     <Fragment>
-                        <Box className={classes.header} p={8}>
+                        <Box className={classes.header} px={8} py={2}>
                             <Text fw={500} size="lg">{props.title}</Text>
                         </Box>
                         <Divider w="100%" mb="xs" />
