@@ -43,6 +43,21 @@
     filter: blur(8px);
 }
 
+.profile_main {
+    display: flex;
+}
+
+.profile_name_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile_expand_more_block {
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 1280px) and (min-width: 579px){
     .header_menu_block {
         display: flex;
