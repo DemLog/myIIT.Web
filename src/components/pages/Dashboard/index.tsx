@@ -14,6 +14,7 @@ import {useStores} from "@core/hooks";
 
 import {DashboardWidgetUserLevel} from "@components/Dashboard/DashboardWidget/DashboardWidgetUserLevel";
 import {DashboardWidgetServices} from "@components/Dashboard/DashboardWidget/DashboardWidgetServices";
+import {DashboardWidgetTimeTable} from "@components/Dashboard/DashboardWidget/DashboardWidgetTimeTable";
 
 const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
@@ -81,6 +82,7 @@ const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPa
                                 background="linear-gradient(180deg, rgba(206,84,84,0.51) 0%, rgba(159,228,46,0.58) 100%)"
                                 header={{leftSide: "Расписание", rightSide: "Вт, 20 ноября"}} headerNegativeColor>
                                 <Box h={340}/>
+                                <DashboardWidgetTimeTable/>
                             </DashboardWidget>
                         </XBlock>
 
