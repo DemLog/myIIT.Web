@@ -17,10 +17,10 @@ export const ProfileCardBlock: React.FC<ProfileCardBlockProps> = (props: Profile
                 </Box>
                 <Box className={classes.name_box} mt="sm">
                     <Box className={classes.name_main} mb={7}>
-                        <Text c="#535353" fw={500} size="28px">Овчинников Антон</Text>
+                        <Text c="#535353" fw={500} size="130%">Овчинников Антон</Text>
                         <Image ml={5} h={28} w="auto" fit="contain" src={verificationIcon} />
                     </Box>
-                    <Text c="#535353" fw={200} size="20px">ПрИ-401</Text>
+                    <Text c="#535353" fw={200} size="18px">ПрИ-401</Text>
                 </Box>
                 <Box className={classes.action_box} mt="lg">
                     <Button className={classes.update_photo_button} radius="xl">Обновить фото</Button>
