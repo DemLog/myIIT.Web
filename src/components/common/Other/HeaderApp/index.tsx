@@ -50,9 +50,13 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                             {matchesPC &&
                                 <PopoverApp
                                     title="Поиск"
-                                    popover={<SearchPopover/>
-                                }>
-                                    <SearchField/>
+                                    popover={<SearchPopover/>}
+                                    popoverProps={{
+                                        position: "bottom-start",
+                                        width: 350
+                                    }}
+                                >
+                                    <Box className={classes.search_field_box}><SearchField/></Box>
                                 </PopoverApp>
                             }
                             <Box className={classes.header_content_right_block}>

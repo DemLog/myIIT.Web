@@ -1,0 +1,26 @@
+.main__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar_block {
+    display: flex;
+    align-items: center;
+}
+
+.data_block {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.action_block {
+    display: flex;
+    align-items: center;
+}
