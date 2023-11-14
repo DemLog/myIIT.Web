@@ -5,4 +5,5 @@ export interface PopoverAppProps {
     children: ReactNode;
     popover: ReactNode;
     popoverProps?: PopoverProps;
+    title?: string;
 }
