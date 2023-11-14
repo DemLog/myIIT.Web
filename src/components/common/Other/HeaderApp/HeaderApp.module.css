@@ -58,6 +58,10 @@
     align-items: center;
 }
 
+.notification_button_box {
+    display: flex;
+}
+
 @media (max-width: 1280px) and (min-width: 579px){
     .header_menu_block {
         display: flex;

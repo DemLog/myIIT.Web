@@ -1,8 +1,8 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {PopoverAppProps} from "./props";
 import classes from "./PopoverApp.module.css";
 
-import {Popover} from "@mantine/core";
+import {Box, Divider, Popover, Text} from "@mantine/core";
 
 export const PopoverApp: React.FC<PopoverAppProps> = (props: PopoverAppProps) => {
 
@@ -13,6 +13,14 @@ export const PopoverApp: React.FC<PopoverAppProps> = (props: PopoverAppProps) =>
             </Popover.Target>
 
             <Popover.Dropdown p={6}>
+                {props.title &&
+                    <Fragment>
+                        <Box className={classes.header} p={8}>
+                            <Text fw={500} size="lg">{props.title}</Text>
+                        </Box>
+                        <Divider w="100%" mb="xs" />
+                    </Fragment>
+                }
                 {props.popover}
             </Popover.Dropdown>
         </Popover>

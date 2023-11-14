@@ -17,6 +17,7 @@ import {ProfileCard} from "@components/Main/ProfileCard";
 import {FooterLinksBlock} from "@components/Main/FooterLinksBlock";
 import {PopoverApp} from "@components/Other/PopoverApp";
 import expandMoreFillIcon from "@assets/images/icons/expand_more_fill.png";
+import {NotificationPopover} from "@components/Notification/NotificationPopover";
 
 export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
@@ -29,9 +30,9 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
             <Box className={classes.header_main}>
                 <Drawer opened={openedMenu} onClose={close} size="sm"
                         classNames={{content: classes.drawer_content}}>
-                    <ProfileCard />
+                    <ProfileCard/>
                     <NavigationBlock closeDrawer={close}/>
-                    <FooterLinksBlock />
+                    <FooterLinksBlock/>
                 </Drawer>
                 <Container className={classes.header_container} fluid mx={(!matchesPC && !matchesMobile) ? "sm" : "xl"}>
                     {(!matchesPC && !matchesMobile) &&
@@ -48,17 +49,24 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                             {matchesPC && <SearchField/>}
                             <Box className={classes.header_content_right_block}>
                                 <Group gap="xs" mr="lg">
-                                    <NotificationButton radius="sm"/>
+                                    <PopoverApp title="Уведомления"
+                                                popover={<NotificationPopover />}
+                                                popoverProps={{width: 580, position: matchesPC ? "bottom-end" : "bottom", offset: 9}}>
+                                        <Box className={classes.notification_button_box}>
+                                            <NotificationButton radius="sm"/>
+                                        </Box>
+                                    </PopoverApp>
                                     <ActionIcon color="#F6F6F6" size="lg" radius="sm">
                                         <Image w="auto" h={28} fit="contain" src={bookmarkFillIcon}/>
                                     </ActionIcon>
                                 </Group>
-                                <PopoverApp popover={<ProfilePopover />} popoverProps={{width: 260, position: "bottom-end", offset: 9}}>
+                                <PopoverApp popover={<ProfilePopover/>}
+                                            popoverProps={{width: 260, position: "bottom-end", offset: 9}}>
                                     <Box className={classes.profile_main}>
-                                        <Skeleton height={42} circle />
+                                        <Skeleton height={42} circle/>
                                         <Box className={classes.profile_name_block} ml="xs">
-                                            <Skeleton height={14} w={140} radius="xl" />
-                                            <Skeleton height={10} w={50} radius="xl" mt={2} />
+                                            <Skeleton height={14} w={140} radius="xl"/>
+                                            <Skeleton height={10} w={50} radius="xl" mt={2}/>
                                         </Box>
                                         <Box className={classes.profile_expand_more_block} ml={2}>
                                             <Image h={28} w="auto" fit="contain" src={expandMoreFillIcon}/>
