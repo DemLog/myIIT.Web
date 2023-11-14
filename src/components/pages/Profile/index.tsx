@@ -51,11 +51,11 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
                             </Box>
                         </XBlock>
 
-                        <XBlock width={1}>
-                            <Box mr="xs" mb="xs">
-                                <ProfileRewardBlock />
-                            </Box>
-                        </XBlock>
+                        {/*<XBlock width={1}>*/}
+                        {/*    <Box mr="xs" mb="xs">*/}
+                        {/*        <ProfileRewardBlock />*/}
+                        {/*    </Box>*/}
+                        {/*</XBlock>*/}
                     </XMasonry>
                 </Box>
                 <Box className={classes.content_help_block} ml="xs">
