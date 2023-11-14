@@ -39,6 +39,10 @@
     box-shadow: 4px 0px 4px 0px rgba(34, 60, 80, 0.14);
 }
 
+.search_field_box{
+    width: 60%;
+}
+
 .drawer_inner {
     filter: blur(8px);
 }
