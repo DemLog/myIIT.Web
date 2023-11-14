@@ -10,7 +10,7 @@ export const ProfileDataBlock: React.FC<ProfileDataBlockProps> = (props: Profile
     return (
         <Box className={classes.main_container} px="lg" py="xs">
             <Box className={classes.header}>
-                <Text c="#222222" fw={500} size="lg">Личные данные</Text>
+                <Text c="#222222" fw={500} size="xl">Личные данные</Text>
             </Box>
             <Box className={classes.content} pt="xs" mx="xs">
                 <ProfileDataBlockItem title="Отчество" value="Максимович" />

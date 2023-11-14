@@ -31,5 +31,5 @@
 }
 
 .update_photo_button {
-    background: rgba(91, 108, 240, 0.62);
+    background: rgba(91, 108, 240, 0.62) !important;
 }
