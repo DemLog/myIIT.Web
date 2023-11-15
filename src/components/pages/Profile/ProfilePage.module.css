@@ -19,6 +19,12 @@
     right: 48px;
 }
 
+.tab_panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 @media (max-width: 579px) {
     .content {
         /*margin-top: 80px;*/
