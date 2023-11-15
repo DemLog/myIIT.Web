@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {HeaderAppProps} from "./props";
 import classes from "./HeaderApp.module.css";
 
-import {ActionIcon, Box, Burger, Container, Drawer, Group, Image, Skeleton} from "@mantine/core";
+import {ActionIcon, Avatar, Box, Burger, Container, Drawer, Group, Image, Skeleton, Text} from "@mantine/core";
 import {useDisclosure, useMediaQuery} from "@mantine/hooks";
 
 import myIITLogoImg from "@assets/images/logo/myIIT-logo-with-background.png";
@@ -20,14 +20,19 @@ import {FooterLinksBlock} from "@components/Main/FooterLinksBlock";
 import {PopoverApp} from "@components/Other/PopoverApp";
 import {NotificationPopover} from "@components/Notification/NotificationPopover";
 import {SearchPopover} from "@components/Search/SearchPopover";
+import {observer} from "mobx-react";
+import {useStores} from "@core/hooks";
 
-export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
+const HeaderAppComponent: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
     const [profilePopoverOpened, setProfilePopoverOpened] = useState(false);
 
     const matchesPC = useMediaQuery('(min-width: 1280px)');
     const matchesMobile = useMediaQuery('(max-width: 579px)')
 
     const [openedMenu, {toggle: setOpenedMenu, close}] = useDisclosure();
+
+    const {userStore} = useStores();
+    const userData = userStore.getUser();
 
     return (
         !matchesMobile ?
@@ -87,10 +92,10 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                                                 onChange: setProfilePopoverOpened
                                 }}>
                                     <Box className={classes.profile_main}>
-                                        <Skeleton height={42} circle/>
+                                        <Avatar color="black" radius="xl" size={42} src={userData?.avatar}>{userData?.lastName[0]}{userData?.firstName[0]}</Avatar>
                                         <Box className={classes.profile_name_block} ml="xs">
-                                            <Skeleton height={14} w={140} radius="xl"/>
-                                            <Skeleton height={10} w={50} radius="xl" mt={2}/>
+                                            <Text fw={500}>{userData?.lastName} {userData?.firstName}</Text>
+                                            <Text mt={-6} fw={200} size="sm">{userData?.studyGroup}</Text>
                                         </Box>
                                         <Box className={classes.profile_expand_more_block} ml={2}>
                                             <Image h={28} w="auto" fit="contain" src={profilePopoverOpened ? expandLessFillIcon : expandMoreFillIcon}/>
@@ -104,3 +109,5 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
             </Box> : <HeaderAppMobile {...props} />
     );
 };
+
+export const HeaderApp = observer(HeaderAppComponent);

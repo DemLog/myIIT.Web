@@ -5,7 +5,7 @@ import classes from "./NavigationBlock.module.css";
 import {observer} from "mobx-react";
 import {useStores} from "@core/hooks";
 
-import {Box, Divider, noop} from "@mantine/core";
+import {Box, Divider} from "@mantine/core";
 
 import {NavigationBlockList} from "@components/Main/NavigationBlock/NavigationBlockList";
 import {ServicesBlock} from "@components/Main/ServicesBlock";
