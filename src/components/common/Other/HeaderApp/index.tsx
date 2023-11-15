@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {HeaderAppProps} from "./props";
 import classes from "./HeaderApp.module.css";
 
@@ -7,6 +7,8 @@ import {useDisclosure, useMediaQuery} from "@mantine/hooks";
 
 import myIITLogoImg from "@assets/images/logo/myIIT-logo-with-background.png";
 import bookmarkFillIcon from "@assets/images/icons/bookmark_fill.png";
+import expandMoreFillIcon from "@assets/images/icons/expand_more_fill.png";
+import expandLessFillIcon from "@assets/images/icons/expand_less.png";
 
 import {SearchField} from "@components/Search/SearchField";
 import {NotificationButton} from "@components/Notification/NotificationButton";
@@ -16,11 +18,12 @@ import {NavigationBlock} from "@components/Main/NavigationBlock";
 import {ProfileCard} from "@components/Main/ProfileCard";
 import {FooterLinksBlock} from "@components/Main/FooterLinksBlock";
 import {PopoverApp} from "@components/Other/PopoverApp";
-import expandMoreFillIcon from "@assets/images/icons/expand_more_fill.png";
 import {NotificationPopover} from "@components/Notification/NotificationPopover";
 import {SearchPopover} from "@components/Search/SearchPopover";
 
 export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
+    const [profilePopoverOpened, setProfilePopoverOpened] = useState(false);
+
     const matchesPC = useMediaQuery('(min-width: 1280px)');
     const matchesMobile = useMediaQuery('(max-width: 579px)')
 
@@ -77,7 +80,12 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                                     </ActionIcon>
                                 </Group>
                                 <PopoverApp popover={<ProfilePopover/>}
-                                            popoverProps={{width: 260, position: "bottom-end", offset: 9}}>
+                                            popoverProps={{
+                                                width: 260,
+                                                position: "bottom-end",
+                                                offset: 9,
+                                                onChange: setProfilePopoverOpened
+                                }}>
                                     <Box className={classes.profile_main}>
                                         <Skeleton height={42} circle/>
                                         <Box className={classes.profile_name_block} ml="xs">
@@ -85,7 +93,7 @@ export const HeaderApp: React.FC<HeaderAppProps> = (props: HeaderAppProps) => {
                                             <Skeleton height={10} w={50} radius="xl" mt={2}/>
                                         </Box>
                                         <Box className={classes.profile_expand_more_block} ml={2}>
-                                            <Image h={28} w="auto" fit="contain" src={expandMoreFillIcon}/>
+                                            <Image h={28} w="auto" fit="contain" src={profilePopoverOpened ? expandLessFillIcon : expandMoreFillIcon}/>
                                         </Box>
                                     </Box>
                                 </PopoverApp>
