@@ -47,7 +47,7 @@ export const ProfileLevelBlock: React.FC<ProfileLevelBlockProps> = (props: Profi
                 </Box>
                 <Box className={classes.text_block} mt="lg" pb="xl">
                     <Text fw={500} size="lg">Вы на 2 месте!</Text>
-                    <Text fw={100} size="xs" mt={-5}>Выполняйте задания, чтобы повысить уровень</Text>
+                    <Text fw={100} size="xs" ta="center" mt={-5}>Выполняйте задания, чтобы повысить уровень</Text>
                 </Box>
             </Box>
         </Box>
