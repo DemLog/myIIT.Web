@@ -39,8 +39,31 @@
     box-shadow: 4px 0px 4px 0px rgba(34, 60, 80, 0.14);
 }
 
+.search_field_box{
+    width: 30%;
+}
+
 .drawer_inner {
     filter: blur(8px);
+}
+
+.profile_main {
+    display: flex;
+}
+
+.profile_name_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile_expand_more_block {
+    display: flex;
+    align-items: center;
+}
+
+.notification_button_box {
+    display: flex;
 }
 
 @media (max-width: 1280px) and (min-width: 579px){

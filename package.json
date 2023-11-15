@@ -44,6 +44,7 @@
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "clsx": "^2.0.0",
+    "gradient-ring-progress": "^1.0.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "mobx": "^6.10.2",

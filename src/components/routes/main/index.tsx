@@ -1,10 +1,11 @@
 import React from "react";
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 
-import {LoginPage} from "@pages/Login";
+import {LoginPage} from "components/pages/LoginPage";
 import {MainLayout} from "@components/Main/MainLayout";
 import {DashboardPage} from "@pages/Dashboard";
 import {NotFoundPage} from "@pages/NotFound";
+import {ProfilePage} from "@pages/Profile";
 
 const router = createBrowserRouter([
     {
@@ -20,13 +21,17 @@ const router = createBrowserRouter([
                 element: <DashboardPage />
             },
             {
+                path: "/profile",
+                element: <ProfilePage />
+            },
+            {
                 path: "*",
                 element: <NotFoundPage />
             }
         ]
     },
     {
-        path: "/Login",
+        path: "/login",
         element: <LoginPage />
     }
 ]);
