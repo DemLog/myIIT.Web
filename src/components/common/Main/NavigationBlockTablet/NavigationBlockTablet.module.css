@@ -1,0 +1,22 @@
+.main_container {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--mantine-radius-lg);
+}
+
+.nav_link_icon {
+    filter: invert(59%) sepia(3%) saturate(8%) hue-rotate(331deg) brightness(92%) contrast(86%);
+}
+
+.nav_link_icon_active {
+    filter: invert(44%) sepia(78%) saturate(3677%) hue-rotate(219deg) brightness(98%) contrast(93%);
+}
+
+.nav_link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav_link_text {
+    letter-spacing: -.03em;
+}

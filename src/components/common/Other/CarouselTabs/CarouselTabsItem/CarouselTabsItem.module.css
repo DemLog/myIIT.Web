@@ -1,0 +1,8 @@
+.main_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: var(--mantine-radius-lg);
+    user-select: none;
+}

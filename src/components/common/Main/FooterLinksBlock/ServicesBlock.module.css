@@ -1,0 +1,25 @@
+.main_container {
+    width: 100%;
+}
+
+.links_box {
+
+}
+
+.copyright_box {
+    letter-spacing: -.055em;
+    color: #8F8F8F;
+}
+
+.footer_link {
+    color: #676767;
+    letter-spacing: -.055em;
+}
+
+.footer_link:hover {
+    color: #b0b0b0;
+}
+
+.footer_link:active {
+    color: #0c55ec;
+}

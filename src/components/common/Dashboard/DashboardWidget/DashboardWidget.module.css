@@ -1,0 +1,36 @@
+.main_container {
+    /*padding: 5px;*/
+    background: rgb(0,133,255);
+    background: linear-gradient(180deg, rgba(0,133,255,1) 0%, rgba(0,255,209,0.3) 100%);
+    border-radius: var(--mantine-radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+}
+
+.header_content {
+    display: flex;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 0 4px;
+    width: fit-content;
+    border-radius: var(--mantine-radius-lg);
+    backdrop-filter: blur(4px);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+}
+
+@media (max-width: 579px) {
+    .header_content {
+        backdrop-filter: unset;
+        text-shadow: unset;
+    }
+}
