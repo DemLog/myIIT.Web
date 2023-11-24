@@ -12,7 +12,7 @@
 }
 
 .form_title {
-    color: #4C5070;
+    color: var(--primary-body);
     letter-spacing: -0.025em;
 }
 
