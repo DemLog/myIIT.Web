@@ -1,0 +1,17 @@
+.button {
+    width: 100px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--light-primary-main, #5B6CF0);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.30); 
+
+    color: var(--light-text-white, #FFF);
+    text-align: center;
+    /* Small - Bold */
+    font-family: IBM Plex Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
