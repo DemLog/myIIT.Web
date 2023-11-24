@@ -39,7 +39,7 @@ const LoginFormComponent: React.FC<LoginFormProps> = (props: LoginFormProps) => 
     return (
         <Fragment>
             <Box className={classes.main_container} px="lg" py="lg">
-                <Title className={classes.form_title} fw={600} size={30}>Авторизация</Title>
+                <Title className={classes.form_title} fw="var(--regular-medium)" c="var(--background-auth)">Авторизация</Title>
                 <Stack className={classes.form_input_block} mt="lg">
                     <TextInput
                         className={classes.form_input}
