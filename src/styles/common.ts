@@ -1,4 +1,4 @@
-import {createTheme} from "@mantine/core";
+import {createTheme, rgba} from "@mantine/core";
 import {CSSVariablesResolver} from "@mantine/core/lib";
 
 export const CommonStyles = createTheme({
@@ -7,10 +7,10 @@ export const CommonStyles = createTheme({
         headings: { fontFamily: 'IBM Plex Sans, Sora, sans-serif' },
 
         //colors
-        primaryLight: '#5B6CF0',
-        secondaryLight: '#5BE7F0',
+        primaryMainLight: '#5B6CF0',
+        secondaryMainLight: '#5BE7F0',
         backgroundMainLight: '#EDEDED',
-        backgroundAuthLight: 'gradient',
+        backgroundAuthLight: "здесь должен быть градиент",
 
         primaryText: '#4C5070',
         secondaryText: '#929292',
@@ -69,8 +69,11 @@ export const resolver: CSSVariablesResolver = (theme) => ({
 
     light: {
         //переменные только для светлой цветовой схемы
-        '--primary-body': theme.other.primaryLight,
-        '--secondary-body': theme.other.secondaryLight,
+        '--primary-main': theme.other.primaryMainLight,
+        '--secondary-main': theme.other.secondaryMainLight,
+
+        '--background-main': theme.other.backgroundMainLight,
+        '--background-auth': theme.other.backgroundAuthLight,
 
         '--primary-text': theme.other.primaryText,
         '--secondary-text': theme.other.secondaryText,

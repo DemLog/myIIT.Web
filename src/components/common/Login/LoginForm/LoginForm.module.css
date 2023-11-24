@@ -12,7 +12,7 @@
 }
 
 .form_title {
-    color: var(--primary-body);
+    color: var(--primary-main);
     letter-spacing: -0.025em;
 }
 
@@ -21,6 +21,7 @@
 }
 
 .form_input {
+
 }
 
 .form_iit_moodle_block {
