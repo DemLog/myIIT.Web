@@ -10,13 +10,14 @@ import '@mantine/core/styles.css'
 import {CommonStyles} from "./styles";
 import "./styles/css/normalize.css";
 import "./styles/css/main.css";
+import {resolver} from "./styles/common";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <MantineProvider theme={CommonStyles}>
+        <MantineProvider theme={CommonStyles} cssVariablesResolver={resolver}>
             <App/>
         </MantineProvider>
     </React.StrictMode>
