@@ -8,6 +8,7 @@ export const CommonStyles = createTheme({
 
         //colors
         primaryMainLight: '#5B6CF0',
+        primaryNegativeLight: '#B7B7B7',
         secondaryMainLight: '#5BE7F0',
         backgroundMainLight: '#EDEDED',
         backgroundAuthLight: "linear-gradient(180deg, rgba(186,174,255,0.85) 0%, rgba(249,249,249,0) 100%)",
@@ -70,6 +71,7 @@ export const resolver: CSSVariablesResolver = (theme) => ({
     light: {
         //переменные только для светлой цветовой схемы
         '--primary-main': theme.other.primaryMainLight,
+        '--primary-negative': theme.other.primaryNegativeLight,
         '--secondary-main': theme.other.secondaryMainLight,
 
         '--background-main': theme.other.backgroundMainLight,
