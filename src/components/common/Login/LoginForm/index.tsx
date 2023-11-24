@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useState} from "react";
 import {LoginFormProps} from "./props";
 import classes from "./LoginForm.module.css";
 
@@ -6,10 +6,35 @@ import {Box, Button, PasswordInput, Stack, Text, TextInput, Title} from "@mantin
 import {useMediaQuery} from "@mantine/hooks";
 
 import {LoginFormAuthIITBlock} from "./LoginFormAuthIITBlock"
+import apiService from "@core/services/apiService";
+import {observer} from "mobx-react";
+import {useStores} from "@core/hooks";
+import {IUserLogin} from "@models/user/IUserLogin";
+import {useNavigate} from "react-router-dom";
 
-export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
+const LoginFormComponent: React.FC<LoginFormProps> = (props: LoginFormProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
     const matchesMobile = useMediaQuery('(max-width: 579px)')
+
+    const {userStore} = useStores();
+    const navigate = useNavigate();
+
+    const [loginValue, setLoginValue] = useState("");
+    const [passwordValue, setPasswordValue] = useState("");
+
+    const handleSubmitButton = async () => {
+        const data = await apiService({
+            method: "POST", url: "auth.login", body: {
+                login: loginValue,
+                password: passwordValue
+            }
+        });
+
+        if (data?.response_code === 201) {
+            userStore.setSession(data.data as IUserLogin);
+            navigate("/");
+        }
+    };
 
     return (
         <Fragment>
@@ -22,6 +47,7 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
                         size="md"
                         radius="lg"
                         placeholder="Логин Moodle"
+                        onChange={e => setLoginValue(e.target.value)}
                     />
                     <PasswordInput
                         className={classes.form_input}
@@ -29,14 +55,17 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
                         size="md"
                         radius="lg"
                         placeholder="Пароль"
+                        onChange={e => setPasswordValue(e.target.value)}
                     />
                 </Stack>
-                <Button fullWidth color="#5B6CF0" size="lg" radius="lg" mt="lg"><Text fw={600} size="24px">Войти</Text></Button>
+                <Button onClick={() => handleSubmitButton()} fullWidth color="#5B6CF0" size="lg" radius="lg" mt="lg"><Text fw={600} size="24px">Войти</Text></Button>
                 {!matchesMobile && <LoginFormAuthIITBlock/>}
             </Box>
             {matchesMobile && <Box w="80%">
-                <LoginFormAuthIITBlock />
+                <LoginFormAuthIITBlock/>
             </Box>}
         </Fragment>
     )
 };
+
+export const LoginForm = observer(LoginFormComponent);

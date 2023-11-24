@@ -1,4 +1,4 @@
 export interface ProfileDataBlockItemProps {
     title: string;
-    value: string;
+    value: string | undefined;
 }
