@@ -10,7 +10,7 @@ export const CommonStyles = createTheme({
         primaryMainLight: '#5B6CF0',
         secondaryMainLight: '#5BE7F0',
         backgroundMainLight: '#EDEDED',
-        backgroundAuthLight: "здесь должен быть градиент",
+        backgroundAuthLight: "linear-gradient(180deg, rgba(186,174,255,0.85) 0%, rgba(249,249,249,0) 100%)",
 
         primaryText: '#4C5070',
         secondaryText: '#929292',
