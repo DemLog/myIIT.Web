@@ -1,3 +1,7 @@
+.root {
+    width: 100%;
+}
+
 .input {
     &[data-variant="default"] {
         --_input-bg: var(--background-main);

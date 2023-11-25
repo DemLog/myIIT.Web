@@ -12,6 +12,7 @@ export const MitStyles = {
 
     backgroundMainLight: '#EDEDED',
     backgroundAuthLight: "linear-gradient(180deg, rgba(186,174,255,0.85) 0%, rgba(249,249,249,0) 100%)",
+    backgroundCardLight: "linear-gradient(180deg, rgba(255,255,255,0.26) 40%, rgba(212,212,212,0.26) 100%)",
 
     primaryText: '#4C5070',
     secondaryText: '#929292',
@@ -102,6 +103,7 @@ export const CommonResolver: CSSVariablesResolver = (theme) => ({
 
         '--background-main': theme.other.backgroundMainLight,
         '--background-auth': theme.other.backgroundAuthLight,
+        '--background-card': theme.other.backgroundCardLight,
 
         '--primary-text': theme.other.primaryText,
         '--secondary-text': theme.other.secondaryText,

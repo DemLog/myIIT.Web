@@ -7,6 +7,7 @@ import {getStyleSize} from "@styles/core/helpers";
 
 export const InputPassword: React.FC<InputPasswordProps> = (props: InputPasswordProps) => {
     return (
-        <PasswordInput classNames={{input: classes.input}} {...props} radius="lg" size={getStyleSize(props.size)} />
+        <PasswordInput classNames={{root: classes.root, input: classes.input}} {...props} radius="lg"
+                       size={getStyleSize(props.size)}/>
     );
 }

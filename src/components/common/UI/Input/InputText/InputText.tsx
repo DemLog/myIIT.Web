@@ -7,6 +7,6 @@ import {getStyleSize} from "@styles/core/helpers";
 
 export const InputText: React.FC<InputTextProps> = (props: InputTextProps) => {
     return (
-        <TextInput classNames={{input: classes.input}} {...props} radius="lg" size={getStyleSize(props.size)} />
+        <TextInput classNames={{root: classes.root, input: classes.input}} {...props} radius="lg" size={getStyleSize(props.size)} />
     );
 }
