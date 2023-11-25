@@ -1,0 +1,108 @@
+.button {
+    --button-bg: initial;
+
+    &[data-color="primary"] {
+        --button-bg: var(--primary-main) !important;
+    }
+
+    &[data-color="secondary"] {
+        --button-bg: var(--secondary-main) !important;
+    }
+
+    &[data-color="negative"] {
+        --button-bg: var(--primary-negative) !important;
+    }
+
+    &:hover {
+        --_button-bg: var(--button-bg);
+    }
+
+    &[data-disabled="true"]:hover {
+        --_button-bg: var(--_disabled-bg);
+    }
+
+    &[data-variant="default"] {
+        --button-bd: black solid 2px;
+    }
+
+    &[data-color="primary"][data-variant="light"] {
+        --button-color: var(--primary-main) !important;
+    }
+
+    &[data-color="secondary"][data-variant="light"] {
+        --button-color: var(--secondary-main) !important;
+    }
+
+    &[data-color="negative"][data-variant="light"] {
+        --button-color: var(--primary-negative) !important;
+    }
+
+    &[data-color="primary"][data-variant="transparent"] {
+        --button-color: var(--primary-main) !important;
+    }
+
+    &[data-color="secondary"][data-variant="transparent"] {
+        --button-color: var(--secondary-main) !important;
+    }
+
+    &[data-color="negative"][data-variant="transparent"] {
+        --button-color: var(--primary-negative) !important;
+    }
+
+    &[data-size="extra-small"] {
+        --button-height: 20px !important;
+    }
+
+    &[data-size="small"] {
+        --button-height: 28px !important;
+    }
+
+    &[data-size="medium"] {
+        --button-height: 36px !important;
+    }
+
+    &[data-size="large"] {
+        --button-height: 44px !important;
+    }
+
+    &[data-size="extra-large"] {
+        --button-height: 52px !important;
+    }
+}
+
+.text {
+    font-weight: var(--bold-weight);
+    color: var(--white-text);
+
+    &[data-size="extra-small"] {
+        font-size: var(--extra-small-size);
+    }
+
+    &[data-size="small"] {
+        font-size: var(--small-size);
+    }
+
+    &[data-size="medium"] {
+        font-size: var(--medium-size);
+    }
+
+    &[data-size="large"] {
+        font-size: var(--large-size);
+    }
+
+    &[data-size="extra-large"] {
+        font-size: var(--extra-large-size);
+    }
+
+    &[data-variant="default"] {
+        color: var(--black-text);
+    }
+
+    &[data-variant="light"], &[data-variant="outline"], &[data-variant="transparent"], &[data-disabled="true"]  {
+        color: inherit;
+    }
+}
+
+.icon {
+    height: calc(var(--button-height) - 1.2rem);
+}
