@@ -33,7 +33,7 @@ export const LoginPage: React.FC<LoginPageProps> = (props: LoginPageProps) => {
                     <Image w={matchesPC ? "35%" : matchesMobile ? "70%" : "80%"} src={myIITLogoImg} mb="md"/>
                     <LoginForm/>
                 </Box>
-                <LoginUpdatePasswordBlock />
+                {/*<LoginUpdatePasswordBlock />*/}
             </Box>
         </Box>
     );

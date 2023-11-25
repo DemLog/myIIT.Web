@@ -10,7 +10,7 @@ import iitBlackIcon from "@assets/images/icons/black-iit.png";
 export const LoginFormAuthIITBlock: React.FC<LoginFormAuthIITBlockProps> = (props: LoginFormAuthIITBlockProps) => {
 
     return (
-        <Box className={classes.form_iit_moodle_block} mt="sm">
+        <Box className={classes.form_iit_moodle_block} mt="sm" pb="sm" ml="xl">
             <Image h={24}
                    w="auto"
                    fit="contain" src={iitBlackIcon}/>
