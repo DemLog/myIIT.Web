@@ -1,0 +1,9 @@
+.input {
+    &[data-variant="default"] {
+        --_input-bg: var(--background-main);
+        border: var(--primary-main) solid 2px;
+        &::placeholder {
+            color: var(--secondary-text);
+        }
+    }
+}

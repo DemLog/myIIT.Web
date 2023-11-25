@@ -48,51 +48,11 @@
     &[data-color="negative"][data-variant="transparent"] {
         --button-color: var(--primary-negative) !important;
     }
-
-    &[data-size="extra-small"] {
-        --button-height: 20px !important;
-    }
-
-    &[data-size="small"] {
-        --button-height: 28px !important;
-    }
-
-    &[data-size="medium"] {
-        --button-height: 36px !important;
-    }
-
-    &[data-size="large"] {
-        --button-height: 44px !important;
-    }
-
-    &[data-size="extra-large"] {
-        --button-height: 52px !important;
-    }
 }
 
 .text {
     font-weight: var(--bold-weight);
     color: var(--white-text);
-
-    &[data-size="extra-small"] {
-        font-size: var(--extra-small-size);
-    }
-
-    &[data-size="small"] {
-        font-size: var(--small-size);
-    }
-
-    &[data-size="medium"] {
-        font-size: var(--medium-size);
-    }
-
-    &[data-size="large"] {
-        font-size: var(--large-size);
-    }
-
-    &[data-size="extra-large"] {
-        font-size: var(--extra-large-size);
-    }
 
     &[data-variant="default"] {
         color: var(--black-text);
