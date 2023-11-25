@@ -2,7 +2,18 @@ import React, {Fragment, useState} from "react";
 import {LoginFormProps} from "./props";
 import classes from "./LoginForm.module.css";
 
-import {Box, Button, PasswordInput, Stack, Text, TextInput, Title} from "@mantine/core";
+import {
+    Box,
+    Button,
+    createTheme,
+    Input,
+    MantineThemeProvider,
+    PasswordInput,
+    Stack,
+    Text,
+    TextInput,
+    Title
+} from "@mantine/core";
 import {useMediaQuery} from "@mantine/hooks";
 
 import {LoginFormAuthIITBlock} from "./LoginFormAuthIITBlock"
@@ -36,30 +47,39 @@ const LoginFormComponent: React.FC<LoginFormProps> = (props: LoginFormProps) => 
         }
     };
 
+    const theme = createTheme({
+        components: {
+            Input: Input.extend({
+                classNames: {
+                    input: classes.input,
+                },
+            }),
+        },
+    });
+
     return (
         <Fragment>
-            <Box className={classes.main_container} px="lg" py="lg">
-                <Title className={classes.form_title} fw="var(--regular-medium)" c="var(--background-auth)">Авторизация</Title>
-                <Stack className={classes.form_input_block} mt="lg">
-                    <TextInput
-                        className={classes.form_input}
-                        variant="filled"
-                        size="md"
-                        radius="lg"
-                        placeholder="Логин Moodle"
-                        onChange={e => setLoginValue(e.target.value)}
-                    />
-                    <PasswordInput
-                        className={classes.form_input}
-                        variant="filled"
-                        size="md"
-                        radius="lg"
-                        placeholder="Пароль"
-                        onChange={e => setPasswordValue(e.target.value)}
-                    />
+            <Box className={classes.main_container} px="xl" py="xl" pt="xs" mt="xl">
+                <Title className={classes.form_title}>Авторизация</Title>
+                <Stack className={classes.form_input_block}>
+                    <MantineThemeProvider theme={theme}>
+                        <TextInput
+                            variant="filled"
+                            size="md"
+                            radius="lg"
+                            placeholder="Логин Moodle"
+                            onChange={e => setLoginValue(e.target.value)}
+                        />
+                        <PasswordInput
+                            size="md"
+                            radius="lg"
+                            placeholder="Пароль"
+                            onChange={e => setPasswordValue(e.target.value)}
+                        />
+                    </MantineThemeProvider>
                 </Stack>
-                <Button onClick={() => handleSubmitButton()} fullWidth color="#5B6CF0" size="lg" radius="lg" mt="lg"><Text fw={600} size="24px">Войти</Text></Button>
                 {!matchesMobile && <LoginFormAuthIITBlock/>}
+                <Button onClick={() => handleSubmitButton()} w={360} color="#5B6CF0" size="lg" radius="lg" mt="lg"><Text fw={600} size="24px">Войти</Text></Button>
             </Box>
             {matchesMobile && <Box w="80%">
                 <LoginFormAuthIITBlock/>
