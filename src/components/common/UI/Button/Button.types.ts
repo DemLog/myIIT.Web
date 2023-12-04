@@ -1,11 +1,10 @@
 import {ButtonVariant, MantineColor, MantineSize} from "@mantine/core";
-import {ButtonProps as MButtonProps} from "@mantine/core";
+import {MitSize} from "@styles/core";
 
 export type ButtonDefaultColor = "primary" | "secondary" | "negative";
 export type ButtonColor = ButtonDefaultColor | MantineColor;
 
-export type ButtonDefaultSize = "extra-small" | "small" | "medium" | "large" | "extra-large";
-export type ButtonSize = ButtonDefaultSize | MantineSize;
+export type ButtonSize = MitSize | MantineSize;
 
 export interface ButtonProps {
     text: string;

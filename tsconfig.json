@@ -28,7 +28,8 @@
       "@assets/*": ["assets/*"],
       "@models/*": ["core/models/*"],
       "@stores/*": ["core/stores/*"],
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "extends": "tsconfig.paths.json",
