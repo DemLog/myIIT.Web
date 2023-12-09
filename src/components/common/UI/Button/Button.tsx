@@ -16,6 +16,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
                  fullWidth={props.fullWidth} {...buttonAttributes} disabled={props.disabled} loading={props.loading}
                  leftSection={props.leftIcon && <Image className={classes.icon} src={props.leftIcon} w="auto" fit="contain"/>}
                  rightSection={props.rightIcon && <Image className={classes.icon} src={props.rightIcon} w="auto" fit="contain"/>}
+                 onClick={props.onClick} w={props.width}
         >
             <Text className={classes.text} c={props.colorText} size={getStyleSize(props.size, true)} {...textAttributes}>{props.text}</Text>
         </MButton>
