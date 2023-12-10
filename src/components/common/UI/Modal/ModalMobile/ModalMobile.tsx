@@ -46,7 +46,7 @@ export const ModalMobile: React.FC<ModalMobileProps> = (props: ModalMobileProps)
                     <Divider />
                 </Box>
             )}
-            <ScrollArea.Autosize className={classes.content_block} type="never" mah={300} py="xs" px="md">
+            <ScrollArea.Autosize className={classes.content_block} type="never" mah={360} py="xs" px="md">
                 {props.children}
             </ScrollArea.Autosize>
             {props.buttons && (

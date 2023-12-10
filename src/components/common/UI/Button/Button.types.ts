@@ -18,5 +18,5 @@ export interface ButtonProps {
     rightIcon?: string;
     disabled?: boolean;
     loading?: boolean;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>
+    onClick?: () => void;
 }

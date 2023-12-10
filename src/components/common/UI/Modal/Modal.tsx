@@ -27,6 +27,7 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
             padding={0}
             radius="lg"
             centered
+            size="auto"
             overlayProps={{
                 blur: 4
             }}
@@ -50,7 +51,7 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
             {props.buttons && (
                 <Group className={classes.buttons_block} py="xs" px="md" justify="flex-end" gap="xs">
                     {props.buttons.map((value) => (
-                        <Button size="small" {...value} />
+                        <Button size="medium" {...value} />
                     ))}
                 </Group>
             )}
