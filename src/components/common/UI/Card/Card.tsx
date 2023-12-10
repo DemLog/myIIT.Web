@@ -6,10 +6,11 @@ import {Box} from "@mantine/core";
 
 
 export const Card: React.FC<CardProps> = (props: CardProps) => {
-
+    const {children} = props;
+    
     return (
         <Box className={classes.card} {...props}>
-            {props.children}
+            {children}
         </Box>
     )
 }

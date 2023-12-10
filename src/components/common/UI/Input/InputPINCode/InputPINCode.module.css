@@ -1,0 +1,44 @@
+.root{
+    display: flex;
+    gap: 0.4rem;
+  }
+  
+  .field_item {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .filled_circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: var(--text-primary); 
+  }
+  
+  .empty_circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--text-primary); 
+  }
+  
+  .input {
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    caret-color: transparent;
+  }

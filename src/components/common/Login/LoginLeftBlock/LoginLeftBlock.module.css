@@ -1,0 +1,43 @@
+.main {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.graphics_block {
+    position: relative;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graphics_vector {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    max-height: 486px;
+}
+
+.graphics_mobile {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    max-height: 578px;
+    right: 10%;
+}
+
+.text_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.download_block {
+    display: flex;
+    justify-content: center;
+}
