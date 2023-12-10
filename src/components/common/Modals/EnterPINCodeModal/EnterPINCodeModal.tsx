@@ -9,6 +9,7 @@ import { Text, Modal } from "@components/UI";
 
 import PasswordImage from "@assets/images/login/password_image.png";
 import { InputPINCode } from "@components/UI/Input";
+import { KeyboardNumber } from "@components/UI/Keyboard";
 
 export const EnterPINCodeModal: React.FC<EnterPINCodeModalProps> = (props: EnterPINCodeModalProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -41,7 +42,9 @@ export const EnterPINCodeModal: React.FC<EnterPINCodeModalProps> = (props: Enter
                     <Box className={classes.input_box}>
                         <InputPINCode value={valuePIN} onChange={setValuePIN} />
                     </Box>
-                    <Box className={classes.keyboard_box}></Box>
+                    <Box className={classes.keyboard_box}>
+                        <KeyboardNumber onChange={setValuePIN} />
+                    </Box>
                 </Box>
             </Box>
         </Modal>
