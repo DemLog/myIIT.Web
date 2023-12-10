@@ -12,9 +12,11 @@ export interface ButtonProps {
     colorText?: MantineColor;
     size: ButtonSize;
     variant: ButtonVariant;
+    width?: string | number | MantineSize;
     fullWidth?: boolean;
     leftIcon?: string;
     rightIcon?: string;
     disabled?: boolean;
     loading?: boolean;
+    onClick?: () => void;
 }

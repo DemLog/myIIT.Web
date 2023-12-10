@@ -20,8 +20,8 @@ const defaultSizes: StyleMapping = {
     "extra-large": MitStyles.elSize,
 };
 
-export const getStyleSize = (value: MitSize | MantineSize, isText?: boolean): string => {
-    const isDefaultSize = (size: MitSize | MantineSize): size is MitSize =>
+export const getStyleSize = (value: MitSize | MantineSize | string, isText?: boolean): string => {
+    const isDefaultSize = (size: MitSize | MantineSize | string): size is MitSize =>
         ["extra-small", "small", "medium", "large", "extra-large"].includes(size as string);
 
     if (isDefaultSize(value)) {

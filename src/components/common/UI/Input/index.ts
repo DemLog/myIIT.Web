@@ -1,4 +1,5 @@
-export {InputText} from "./InputText";
-export {InputPassword} from "./InputPassword";
+export { InputText } from "./InputText";
+export { InputPassword } from "./InputPassword";
+export { InputPINCode } from "./InputPINCode";
 
-export type {InputSize} from "./Input.types";
+export type { InputSize } from "./Input.types";
