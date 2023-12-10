@@ -11,34 +11,26 @@ import {useStores} from "@core/hooks";
 import {NamePageBlock} from "@components/Other/NamePageBlock";
 import {XBlock, XMasonry} from "react-xmasonry";
 
-import accountIcon from "@assets/images/icons/account_circle.png";
 import {ProfileCardBlock} from "@components/Profile/ProfileCardBlock";
 import {ProfileDataBlock} from "@components/Profile/ProfileDataBlock";
 import {ProfileLevelBlock} from "@components/Profile/ProfileLevelBlock";
-import {ProfileActionBlock} from "@components/Profile/ProfileActionBlock";
 import {CarouselTabs} from "@components/Other/CarouselTabs";
 import {CarouselTabType} from "@components/Other/CarouselTabs/props";
 
-import awardStarIcon from "@assets/images/profile/award_star_fill.svg";
-import leaderBoardIcon from "@assets/images/profile/leaderboard_fill.svg";
-import userAttributes from "@assets/images/profile/user_attributes_fill.svg";
 import {CarouselTabsBlock} from "@components/Other/CarouselTabs/CarouselTabsBlock";
 
 const tabsList: CarouselTabType[] = [
     {
         value: "info",
         label: "Информация",
-        icon: userAttributes
     },
     {
         value: "level",
         label: "Уровень",
-        icon: leaderBoardIcon
     },
     {
         value: "reward",
         label: "Награды",
-        icon: awardStarIcon
     }
 
 ];
@@ -82,7 +74,6 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
 
                                 {!matchesPC && !matchesMobile &&
                                     <Box mr={matchesMobile ? 0 : "xs"} mb="xs">
-                                        <ProfileActionBlock/>
                                     </Box>
                                 }
                             </XBlock>
@@ -122,7 +113,6 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
                 </Box>
                 {matchesPC &&
                     <Box className={classes.content_help_block}>
-                        <ProfileActionBlock/>
                     </Box>
                 }
             </Box>

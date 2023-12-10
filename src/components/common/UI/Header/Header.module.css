@@ -1,0 +1,59 @@
+.main {
+    height: 56px;
+    width: 100%;
+    background-color: var(--background-white);
+    position: fixed;
+    z-index: 1000;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_side_block {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.right_side_block {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.action_button_block {
+    height: 30px;
+}
+
+.notification_button {}
+
+.notification_icon {
+    height: 100%;
+    width: 100%;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        height: 90%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--disabled-dark);
+    }
+}
+
+.profile_block {
+    height: 100%;
+}

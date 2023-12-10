@@ -4,44 +4,5 @@
     height: 100%;
     width: 100%;
     position: relative;
-}
-
-.content {
-    display: flex;
-    margin-top: 80px;
-}
-
-.left_side {
-    width: 330px;
-    position: fixed;
-}
-
-.left_side_tablet {
-    width: 90px;
-    background: #F9F9F9;
-    position: fixed;
-    margin-top: 62px;
-    height: calc(100vh - 62px);
-}
-
-.content_page {
-    width: 100%;
-    margin-left: calc(330px + 1rem * var(--mantine-scale));
-}
-
-@media (max-width: 1280px) and (min-width: 579px){
-    .content_page {
-        margin-left: calc(90px + 1rem * var(--mantine-scale));
-    }
-
-}
-
-@media (max-width: 579px) {
-    .content {
-        margin-top: 66px;
-    }
-
-    .content_page {
-        margin-left: 0;
-    }
+    background-color: var(--background-main);
 }

@@ -6,7 +6,7 @@ import {Box} from "@mantine/core";
 
 export const Container: React.FC<ContainerProps> = (props: ContainerProps) => {
     return (
-        <Box className={classes.container} px="md" py="sm" {...props} >
+        <Box className={classes.container} px="md" {...props} >
             {props.children}
         </Box>
     )
