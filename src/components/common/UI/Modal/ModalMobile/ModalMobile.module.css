@@ -11,7 +11,7 @@
 
 .modal_content {
     border-radius: var(--mantine-radius-lg) var(--mantine-radius-lg) 0 0;
-    min-height: 40%;
+    min-height: 30%;
     max-height: 80%;
     width: 100%;
     position: absolute;

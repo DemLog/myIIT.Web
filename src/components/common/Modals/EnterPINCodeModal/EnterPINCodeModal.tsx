@@ -32,19 +32,22 @@ export const EnterPINCodeModal: React.FC<EnterPINCodeModalProps> = (props: Enter
             }
         ]}>
             <Box className={classes.main}>
-                {matchesPC && <Box className={classes.image_block}>
+                {matchesPC && <Box className={classes.image_block} mx="xl">
                     <Image src={PasswordImage} h="228px" w="auto" fit="contain" />
                 </Box>}
-                <Box className={classes.pin_block}>
-                    <Box className={classes.title_box}>
-                        <Text size="small" weight="regular" color="text-secondary">Введите PIN-код:</Text>
+                <Box className={classes.pin_block} mx={!matchesPC && !matchesMobile ? 120 : matchesMobile ? 0 : "xl"}>
+                    <Box className={classes.title_box} mb="sm">
+                        <Text size="small" weight="regular" color="text-secondary" ta={matchesPC ? "start" : "center"}>Введите PIN-код:</Text>
                     </Box>
-                    <Box className={classes.input_box}>
+                    <Box className={classes.input_box} mb="sm">
                         <InputPINCode value={valuePIN} onChange={setValuePIN} />
                     </Box>
-                    <Box className={classes.keyboard_box}>
-                        <KeyboardNumber onChange={setValuePIN} />
-                    </Box>
+                    {!matchesMobile && <Box className={classes.keyboard_box}>
+                        <KeyboardNumber onChange={setValuePIN} spacingCol="lg" spacingRow="xs" />
+                    </Box>}
+                    {matchesMobile && <Box className={classes.bottom_mobile_box} mt="md">
+                        <Text size="extra-small" weight="light" color="text-secondary" ta="center">Введите PIN-код, используя клавиатуру устройства</Text>
+                        </Box>}
                 </Box>
             </Box>
         </Modal>

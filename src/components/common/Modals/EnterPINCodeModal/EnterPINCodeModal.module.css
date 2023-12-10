@@ -7,8 +7,19 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.input_box {
+    display: flex;
+    justify-content: center;
 }
 
 .pin_block {
-    width: 500px;
+    width: 100%;
+}
+
+.keyboard_box {
+    display: flex;
+    justify-content: center;
 }
