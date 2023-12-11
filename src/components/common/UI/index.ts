@@ -5,6 +5,5 @@ export { Card } from "./Card";
 export { Container } from "./Container";
 export { Text } from "./Text";
 export { Modal } from "./Modal";
-export { Header } from "./Header";
 export { Popover } from "./Popover";
 export { Menu } from "./Menu";

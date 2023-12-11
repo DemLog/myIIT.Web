@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
     return (
         <Box className={classes.main}>
             <Container>
-                <Box className={classes.content}>
+                <Box className={classes.content} px="xs">
                     <Box className={classes.left_side_block}>
                         <Box className={classes.logo_block}>
                             <Image className={classes.logo_img} src={matchesMobile ? myIITLogoMobile : myIITLogo} h="40px" w="auto" fit="contain" />

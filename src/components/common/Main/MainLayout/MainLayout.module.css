@@ -6,3 +6,43 @@
     position: relative;
     background-color: var(--background-main);
 }
+
+.main_block {
+    margin-top: 56px;
+}
+
+.main_side {
+    width: 100%;
+    display: flex;
+}
+
+.left_side_block {
+    width: 22%;
+}
+
+.right_side_block {
+    width: 78%;
+}
+
+@media (max-width: 1024px) and (min-width: 579px) {
+    .left_side_block {
+        width: 70px;
+        background-color: var(--background-white);
+        position: fixed;
+        height: 100vh;
+        top: 56px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .right_side_block {
+        width: 100% ;
+        margin-left: 70px !important;
+    }
+}
+
+@media (max-width: 579px) {
+    .right_side_block {
+        width: 100%;
+    }
+}

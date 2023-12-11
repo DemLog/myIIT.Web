@@ -2,10 +2,10 @@ import React from "react";
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 
 import {LoginPage} from "@pages/LoginPage/LoginPage";
-import {MainLayout} from "@components/Main/MainLayout/MainLayout";
 import {DashboardPage} from "@pages/Dashboard";
 import {NotFoundPage} from "@pages/NotFound";
 import {ProfilePage} from "@pages/Profile";
+import { MainLayout } from "@components/Main";
 
 const router = createBrowserRouter([
     {
