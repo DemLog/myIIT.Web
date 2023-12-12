@@ -8,7 +8,8 @@
       "@assets/*": ["assets/*"],
       "@models/*": ["core/models/*"],
       "@stores/*": ["core/stores/*"],
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "@styles/*": ["styles/*"]
     }
   }
 }

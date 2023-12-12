@@ -1,0 +1,39 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info_box {
+    display: flex;
+    align-items: center;
+}
+
+.name_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px
+}
+
+.button_box {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        transform: rotate(270deg);
+    }
+
+    path {
+        fill: var(--disabled-dark);
+    }
+}

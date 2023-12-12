@@ -31,7 +31,7 @@ const NotFoundPageComponent: React.FC<NotFoundPageProps> = (props: NotFoundPageP
         <Box className={classes.main_container}>
             {loaderVisible && <Fragment>
                 <Image w={300} fit="contain" src={randomImage}/>
-                <Text size="xl" fw="500" ta="center">Упс, а нет такой страницы! Или разрабы дол*****...</Text>
+                <Text size="xl" fw="500" ta="center">Упс, а нет такой страницы!</Text>
             </Fragment>}
         </Box>
     );
