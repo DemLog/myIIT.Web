@@ -1,9 +1,9 @@
 import React from "react";
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 
-import {LoginPage} from "components/pages/LoginPage";
-import {MainLayout} from "@components/Main/MainLayout";
-import {DashboardPage} from "@pages/Dashboard";
+import { MainLayout } from "@components/Main";
+import {LoginPage} from "@pages/LoginPage";
+import {DashboardPage} from "@pages/DashboardPage";
 import {NotFoundPage} from "@pages/NotFound";
 import {ProfilePage} from "@pages/Profile";
 

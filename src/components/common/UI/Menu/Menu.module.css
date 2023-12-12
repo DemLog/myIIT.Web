@@ -1,0 +1,3 @@
+.main_container {
+    border-radius: 0 0 var(--mantine-radius-lg) var(--mantine-radius-lg);
+}

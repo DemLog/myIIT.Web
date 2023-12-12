@@ -1,0 +1,21 @@
+.modal_overlay {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.header_block {
+    align-items: center;
+}
+
+.header_close {
+    svg {
+        height: 18px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--text-primary);
+    }
+}
+
+.title_block {}
