@@ -10,3 +10,22 @@
 .function_block {
     width: 25%;
 }
+
+@media (max-width: 1024px) {
+    .content {
+        width: 100%;
+    }
+}
+
+.header_block {
+    width: 100%;
+    display: flex;
+}
+
+.title_block {
+    width: 100%;
+}
+
+.action_block {
+    height: 100%;
+}

@@ -1,5 +1,4 @@
 .block {
-    height: fit-content;
     background: var(--background-block);
     border-radius: var(--mantine-radius-lg);
 

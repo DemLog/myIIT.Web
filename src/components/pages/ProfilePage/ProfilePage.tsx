@@ -13,6 +13,7 @@ import { TitleBlock } from "@components/UI";
 
 import profileIcon from "@assets/images/icons/w500/account_circle.svg";
 import { ProfileActionBlock, ProfileAvatarBlock, ProfileInfoBlock } from "@components/Profile";
+import { ProfileActionBlockTablet } from "@components/Profile/ProfileActionBlock/ProfileActionBlockTablet";
 
 const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -28,9 +29,18 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
     return (
         <Box className={classes.main_container}>
             <Box className={classes.content}>
-                <TitleBlock title="Профиль" icon={profileIcon} />
+                <Box className={classes.header_block}>
+                    <Box className={classes.title_block}>
+                        <TitleBlock title="Профиль" icon={profileIcon} />
+                    </Box>
+                    {(!matchesPC && !matchesMobile) && (
+                        <Box className={classes.action_block} ml="md">
+                            <ProfileActionBlockTablet />
+                        </Box>
+                    )}
+                </Box>
                 <Box className={classes.content_box} mt="md">
-                    <XMasonry center={false} targetBlockWidth={237} smartUpdateCeil={1000}>
+                    <XMasonry center={false} targetBlockWidth={matchesPC ? 237 : 267} smartUpdateCeil={1000}>
                         <XBlock width={1}>
                             <Box className={classes.profile_item} mb={16}>
                                 <ProfileAvatarBlock />
@@ -45,9 +55,9 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
                     </XMasonry>
                 </Box>
             </Box>
-            <Box className={classes.function_block} ml="lg">
+            {matchesPC && <Box className={classes.function_block} ml={matchesPC ? "lg" : "md"}>
                 <ProfileActionBlock />
-            </Box>
+            </Box>}
         </Box>
     );
 };
