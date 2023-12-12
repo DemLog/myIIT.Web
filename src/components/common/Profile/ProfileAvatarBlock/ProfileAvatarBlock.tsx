@@ -15,8 +15,8 @@ export const ProfileAvatarBlock: React.FC<ProfileAvatarBlockProps> = (props: Pro
                     <Skeleton h="123px" w="123px" circle />
                 </Box>
                 <Box className={classes.name_block} mb="lg">
-                    <Skeleton h="24px" mb={4} />
-                    <Skeleton h="18px" w="67px" />
+                    <Skeleton h="24px" mb={4} radius="lg" />
+                    <Skeleton h="18px" w="67px" radius="lg" />
                 </Box>
                 <Box className={classes.button_block}>
                     <Button classNames={{ root: classes.button_root }} color={getStyleColor("primary")} variant="outline" radius="lg" size={getStyleSize("small")}>

@@ -12,8 +12,7 @@ import { XBlock, XMasonry } from "react-xmasonry";
 import { TitleBlock } from "@components/UI";
 
 import profileIcon from "@assets/images/icons/w500/account_circle.svg";
-import { ProfileActionBlock } from "@components/Profile";
-import { ProfileAvatarBlock } from "@components/Profile/ProfileAvatarBlock";
+import { ProfileActionBlock, ProfileAvatarBlock, ProfileInfoBlock } from "@components/Profile";
 
 const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -31,10 +30,16 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
             <Box className={classes.content}>
                 <TitleBlock title="Профиль" icon={profileIcon} />
                 <Box className={classes.content_box} mt="md">
-                    <XMasonry center={false} targetBlockWidth={230} smartUpdateCeil={1000}>
+                    <XMasonry center={false} targetBlockWidth={237} smartUpdateCeil={1000}>
                         <XBlock width={1}>
-                            <Box className={classes.profile_item} mx={matchesMobile ? 0 : 8} mb={16}>
+                            <Box className={classes.profile_item} mb={16}>
                                 <ProfileAvatarBlock />
+                            </Box>
+                        </XBlock>
+
+                        <XBlock width={2}>
+                            <Box className={classes.profile_item} ml={12} mb={16}>
+                                <ProfileInfoBlock />
                             </Box>
                         </XBlock>
                     </XMasonry>
