@@ -1,43 +1,21 @@
-.main_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 42%;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,102,255,0.06) 100%);
-    -webkit-box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.16);
-    box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.16);
-    border-radius: var(--mantine-radius-lg);
-}
-
-.form_title {
-    color: #4C5070;
-    letter-spacing: -0.025em;
-}
-
-.form_input_block {
+.main {
     width: 100%;
 }
 
-.form_input {
+.title_block {
+    width: 100%;
 }
 
-.form_iit_moodle_block {
+.input_block {
+    width: 100%;
+}
+
+.iit_moodle_block {
     width: 100%;
     display: flex;
     align-items: center;
-    letter-spacing: 0.025em;
 }
 
-@media (max-width: 1280px) and (min-width: 579px){
-    .main_container {
-        width: 90%;
-    }
-}
-
-@media (max-width: 579px) {
-    .main_container {
-        width: 80%;
-    }
+.button_block {
+    width: 100%;
 }

@@ -7,8 +7,6 @@ import {useMediaQuery} from "@mantine/hooks";
 
 import {ProfileCardLevel} from "@components/Main/ProfileCard/ProfileCardLevel";
 
-import arrowForwardFill from "@assets/images/icons/arrow_forward_fill.png";
-
 export const DashboardWidgetUserLevel: React.FC<DashboardWidgetUserLevelProps> = (props: DashboardWidgetUserLevelProps) => {
     const matchesPC = useMediaQuery('(min-width: 1280px)');
     const matchesMobile = useMediaQuery('(max-width: 579px)')
@@ -24,7 +22,6 @@ export const DashboardWidgetUserLevel: React.FC<DashboardWidgetUserLevelProps> =
             </Box>
             <Box className={classes.arrow_button_box}>
                 <ActionIcon variant="transparent">
-                    <Image className={classes.arrow_button_image} h="xl" w="auto" fit="contain" src={arrowForwardFill}/>
                 </ActionIcon>
             </Box>
         </Box>
