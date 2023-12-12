@@ -1,0 +1,10 @@
+.main_container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    position: absolute;
+    gap: 8px;
+    z-index: 100;
+    width: 93%;
+}

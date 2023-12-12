@@ -6,6 +6,7 @@ import { Menu, Text } from "@components/UI";
 import { Switch } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { getStyleColor } from "@styles/core/helpers/getStyleColor";
+import { useNavigate } from "react-router";
 
 import accountIcon from "@assets/images/icons/w500/account_circle_fill.svg";
 import darkModeIcon from "@assets/images/icons/w500/dark_mode_fill.svg";
@@ -16,6 +17,7 @@ import { ReactSVG } from "react-svg";
 
 export const HeaderProfileMenu: React.FC<HeaderProfileMenuProps> = (props: HeaderProfileMenuProps) => {
     const [openedDarkMode, { toggle: toggleDarkMode }] = useDisclosure(false);
+    const navigation = useNavigate();
 
     return (
         <Menu
@@ -26,7 +28,8 @@ export const HeaderProfileMenu: React.FC<HeaderProfileMenuProps> = (props: Heade
                         {
                             children: <Text size="small" weight="light">Профиль</Text>,
                             leftSection: <ReactSVG className={classes.icon} src={accountIcon}/>,
-                            color: getStyleColor("primary")
+                            color: getStyleColor("primary"),
+                            onClick: () => navigation("/profile")
                         },
                         {
                             children: <Text size="small" weight="light">Темная тема</Text>,

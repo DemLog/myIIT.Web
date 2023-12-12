@@ -8,3 +8,5 @@ export { Modal } from "./Modal";
 export { Popover } from "./Popover";
 export { Menu } from "./Menu";
 export { Widget } from "./Widget";
+export { Block } from "./Block";
+export { TitleBlock } from "./TitleBlock";

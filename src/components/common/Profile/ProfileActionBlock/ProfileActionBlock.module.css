@@ -1,0 +1,39 @@
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.button_inner {
+    width: 100%;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        height: 90%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--text-primary);
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: row;
+    }
+}

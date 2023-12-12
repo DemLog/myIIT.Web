@@ -24,6 +24,20 @@ export const NavigationMobileComponent: React.FC<NavigationMobileProps> = (props
         navigationStore.handleClickLink(index, () => navigation(url));
     };
 
+    // Функция для преобразования индекса
+    const transformIndex = (index: number) => {
+        const indexMap = [1, 2, 0, 3, 4];
+        return indexMap[index];
+    };
+
+    // Функция для определения активной кнопки
+    const isActiveButton = (currentIndex: number) => {
+        const { active } = navigationStore;
+        const activeMap = [1, 2, 0, 3, 4];
+
+        return activeMap[currentIndex] === active;
+    };
+
     return (
         <Box className={classes.main_container} px="sm" py="xs">
             <Box className={classes.buttons_group}>
@@ -31,15 +45,15 @@ export const NavigationMobileComponent: React.FC<NavigationMobileProps> = (props
                     <UnstyledButton
                         key={index}
                         className={classes.button_menu}
-                        onClick={() => handleButtonClick(index, `/${button.url}`)}
-                        data-active={index === navigationStore.active}
+                        onClick={() => handleButtonClick(transformIndex(index), `/${button.url}`)}
+                        data-active={isActiveButton(index)}
                         data-centered={index === 2}
                         p={3}
                     >
                         <Box className={classes.button_content}>
                             <ReactSVG className={classes.icon} src={button.icon as string} />
                         </Box>
-                        {index === navigationStore.active && index !== 2 && (
+                        {isActiveButton(index) && index !== 2 && (
                             <Box className={classes.active_text}>
                                 <Text size="10px" weight="medium" lts={-1}>
                                     {button.label}

@@ -6,4 +6,5 @@ export interface WidgetProps {
     rightSection?: ReactNode;
     backgroundColor?: string;
     variant?: "light" | "dark";
+    noneTopBorder?: boolean;
 }

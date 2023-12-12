@@ -1,0 +1,42 @@
+.main_container {
+    width: 100%;
+    display: flex;
+}
+
+.content {
+    width: 75%;
+}
+
+.function_block {
+    width: 25%;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        width: 100%;
+    }
+}
+
+.header_block {
+    width: 100%;
+    display: flex;
+}
+
+.title_block {
+    width: 100%;
+}
+
+.action_block {
+    height: 100%;
+}
+
+.profile_tabs {
+    position: relative;
+    background: var(--background-block);
+    border-radius: var(--mantine-radius-lg);
+
+    box-shadow: 0px 0px 2px 0px rgba(94,94,94,0.12);
+
+    display: flex;
+    flex-direction: column;
+}
