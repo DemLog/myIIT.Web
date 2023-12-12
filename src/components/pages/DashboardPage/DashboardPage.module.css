@@ -17,9 +17,3 @@
 .content {
 
 }
-
-@media (max-width: 579px) {
-    .content {
-        /*margin-top: 80px;*/
-    }
-}

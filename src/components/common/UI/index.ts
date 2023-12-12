@@ -7,3 +7,4 @@ export { Text } from "./Text";
 export { Modal } from "./Modal";
 export { Popover } from "./Popover";
 export { Menu } from "./Menu";
+export { Widget } from "./Widget";

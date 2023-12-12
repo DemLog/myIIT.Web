@@ -1,0 +1,4 @@
+.content {
+    background: rgba(216,209,164,0.6);
+    border-radius: var(--mantine-radius-lg);
+}
