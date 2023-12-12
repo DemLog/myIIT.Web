@@ -1,8 +1,8 @@
 import React from "react";
-import {CarouselTabsProps} from "./props";
+import {CarouselTabsProps} from "./CarouselTabs.types";
 import classes from "./CarouselTabs.module.css";
 
-import {CarouselTabsItem} from "@components/Other/CarouselTabs/CarouselTabsItem";
+import {CarouselTabsItem} from "./CarouselTabsItem";
 
 import {Box} from "@mantine/core";
 
@@ -11,7 +11,7 @@ export const CarouselTabs: React.FC<CarouselTabsProps> = (props: CarouselTabsPro
     const tabWidth = totalTabs === 2 ? 50 : 45;
 
     return (
-        <Box className={classes.main_container} p="xs" pb={16}>
+        <Box className={classes.main_container}>
             {props.tabs.map((tab, index) => (
                 <CarouselTabsItem
                     key={index}

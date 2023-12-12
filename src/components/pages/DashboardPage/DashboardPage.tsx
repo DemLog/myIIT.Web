@@ -6,7 +6,7 @@ import { Box } from "@mantine/core";
 import { useDocumentTitle, useMediaQuery } from "@mantine/hooks";
 
 import { XMasonry, XBlock } from "react-xmasonry";
-import { WidgetTimetable, WidgetWelcome } from "@components/Widgets";
+import { WidgetProfile, WidgetTimetable, WidgetWelcome } from "@components/Widgets";
 
 import { observer } from "mobx-react";
 import { useStores } from "@core/hooks";
@@ -30,6 +30,14 @@ const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPa
                         <WidgetWelcome />
                     </Box>
                 </XBlock>
+
+                {matchesMobile &&
+                    <XBlock width={1}>
+                        <Box className={classes.dashboard_item} mx={0} mb={16}>
+                            <WidgetProfile />
+                        </Box>
+                    </XBlock>
+                }
 
                 <XBlock width={1}>
                     <Box className={classes.dashboard_item} mx={matchesMobile ? 0 : 8} mb={16}>

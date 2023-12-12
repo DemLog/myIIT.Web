@@ -5,6 +5,7 @@
 }
 
 .avatar_block {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -25,4 +26,20 @@
     width: 80%;
     border-width: 2px;
     padding: 0;
+}
+
+@media (max-width: 579px) {
+    .avatar_block {
+        position: absolute;
+        top: calc(-90px - var(--mantine-spacing-sm));
+    }
+
+    .name_block {
+        margin-top: calc(90px + var(--mantine-spacing-md));
+    }
+
+    .content {
+        position: relative;
+        width: 70%;
+    }
 }

@@ -15,7 +15,7 @@ export const ProfileInfoBlockItem: React.FC<ProfileInfoBlockItemProps> = (props:
             <Box className={classes.value_box} ml="xs">
                 {props.value ?
                     <Text size="small" weight="medium" color={getStyleColor("text-primary")}>{props.value}</Text> :
-                    <Skeleton h="16px" w="60%" radius="lg"/>
+                    <Skeleton h="16px" w="100%" radius="lg"/>
                 }
             </Box>
         </Box>

@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import {CarouselTabsBlockProps} from "./props";
+import {CarouselTabsBlockProps} from "./CarouselTabsBlock.types";
 import classes from "./CarouselTabsBlock.module.css";
 
 export const CarouselTabsBlock: React.FC<CarouselTabsBlockProps> = (props: CarouselTabsBlockProps): React.ReactElement | null => {
