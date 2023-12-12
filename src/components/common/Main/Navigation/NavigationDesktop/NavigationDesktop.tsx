@@ -1,47 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavigationDesktopProps } from "./NavigationDesktop.types";
 import classes from "./NavigationDesktop.module.css";
 
-import { Box, Button, Stack, UnstyledButton } from "@mantine/core";
+import { Box, Stack, UnstyledButton } from "@mantine/core";
 import { Text } from "@components/UI";
-import { getStyleColor } from "@styles/core/helpers/getStyleColor";
+
+import { observer } from "mobx-react";
+import { useStores } from "@core/hooks";
+import { useNavigate } from "react-router-dom";
+
 import { ReactSVG } from "react-svg";
 
-import dashboardIcon from "@assets/images/icons/w400/dashboard_fill.svg";
-import newspaperIcon from "@assets/images/icons/w400/newspaper_fill.svg";
-import scheduleIcon from "@assets/images/icons/w400/schedule_fill.svg";
-import calendarIcon from "@assets/images/icons/w400/calendar_clock_fill.svg";
-import mailIcon from "@assets/images/icons/w400/mail_fill.svg";
+const NavigationDesktopComponent: React.FC<NavigationDesktopProps> = (props: NavigationDesktopProps) => {
+    const { navigationStore } = useStores();
+    const navigation = useNavigate();
 
-export const NavigationDesktop: React.FC<NavigationDesktopProps> = (props: NavigationDesktopProps) => {
-    const [activeButton, setActiveButton] = useState(0);
-
-    const handleButtonClick = (index: number) => {
-        setActiveButton(index);
+    const handleButtonClick = (index: number, url: string) => {
+        navigationStore.handleClickLink(index, () => navigation(url));
     };
-
-    const buttons = [
-        { icon: dashboardIcon, text: "Дашборд" },
-        { icon: newspaperIcon, text: "Новости" },
-        { icon: scheduleIcon, text: "Расписание" },
-        { icon: calendarIcon, text: "Мероприятия" },
-        { icon: mailIcon, text: "Сообщения" },
-    ];
 
     return (
         <Box className={classes.main_container} p="sm">
             <Stack gap={2}>
-                {buttons.map((button, index) => (
+                {navigationStore.services.map((button, index) => (
                     <UnstyledButton
                         key={index}
                         className={classes.button_menu}
-                        onClick={() => handleButtonClick(index)}
-                        data-active={index === activeButton}
+                        onClick={() => handleButtonClick(index, `/${button.url}`)}
+                        data-active={index === navigationStore.active}
                     >
                         <Box className={classes.button_content} p={8}>
-                            <ReactSVG className={classes.icon} src={button.icon} />
+                            <ReactSVG className={classes.icon} src={button.icon as string} />
                             <Text size="medium" weight="medium">
-                                {button.text}
+                                {button.label}
                             </Text>
                         </Box>
                     </UnstyledButton>
@@ -50,3 +41,5 @@ export const NavigationDesktop: React.FC<NavigationDesktopProps> = (props: Navig
         </Box>
     );
 };
+
+export const NavigationDesktop = observer(NavigationDesktopComponent);

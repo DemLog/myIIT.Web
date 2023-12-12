@@ -1,50 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavigationMobileProps } from "./NavigationMobile.types";
 import classes from "./NavigationMobile.module.css";
 
 import { Box, UnstyledButton } from "@mantine/core";
 import { Text } from "@components/UI";
-
 import { ReactSVG } from "react-svg";
-import dashboardIcon from "@assets/images/icons/w400/dashboard_fill.svg";
-import newspaperIcon from "@assets/images/icons/w400/newspaper_fill.svg";
-import scheduleIcon from "@assets/images/icons/w400/schedule_fill.svg";
-import calendarIcon from "@assets/images/icons/w400/calendar_clock_fill.svg";
-import mailIcon from "@assets/images/icons/w400/mail_fill.svg";
 
-export const NavigationMobile: React.FC<NavigationMobileProps> = (props: NavigationMobileProps) => {
-    const [activeButton, setActiveButton] = useState(0);
+import { observer } from "mobx-react";
+import { useStores } from "@core/hooks";
+import { useNavigate } from "react-router-dom";
 
-    const handleButtonClick = (index: number) => {
-        setActiveButton(index);
-    };
+export const NavigationMobileComponent: React.FC<NavigationMobileProps> = (props: NavigationMobileProps) => {
+    const { navigationStore } = useStores();
+    const navigation = useNavigate();
 
-    const buttons = [
-        { icon: newspaperIcon, text: "Новости" },
-        { icon: scheduleIcon, text: "Расписание" },
-        { icon: dashboardIcon, text: "Дашборд", centered: true },
-        { icon: calendarIcon, text: "Мероприятия" },
-        { icon: mailIcon, text: "Сообщения" },
+    const serviceList = [
+        ...navigationStore.services.slice(1, 3),
+        navigationStore.services[0],
+        ...navigationStore.services.slice(3, 5),
     ];
+
+    const handleButtonClick = (index: number, url: string) => {
+        navigationStore.handleClickLink(index, () => navigation(url));
+    };
 
     return (
         <Box className={classes.main_container} px="sm" py="xs">
             <Box className={classes.buttons_group}>
-                {buttons.map((button, index) => (
+                {serviceList.map((button, index) => (
                     <UnstyledButton
+                        key={index}
                         className={classes.button_menu}
-                        onClick={() => handleButtonClick(index)}
-                        data-active={index === activeButton}
-                        data-centered={button.centered}
+                        onClick={() => handleButtonClick(index, `/${button.url}`)}
+                        data-active={index === navigationStore.active}
+                        data-centered={index === 2}
                         p={3}
                     >
                         <Box className={classes.button_content}>
-                            <ReactSVG className={classes.icon} src={button.icon} />
+                            <ReactSVG className={classes.icon} src={button.icon as string} />
                         </Box>
-                        {index === activeButton && !button.centered && (
+                        {index === navigationStore.active && index !== 2 && (
                             <Box className={classes.active_text}>
                                 <Text size="10px" weight="medium" lts={-1}>
-                                    {button.text}
+                                    {button.label}
                                 </Text>
                             </Box>
                         )}
@@ -54,3 +52,5 @@ export const NavigationMobile: React.FC<NavigationMobileProps> = (props: Navigat
         </Box>
     );
 };
+
+export const NavigationMobile = observer(NavigationMobileComponent);

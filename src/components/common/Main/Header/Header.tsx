@@ -14,8 +14,12 @@ import myIITLogo from "@assets/images/logo/myIIT-logo-with-background.png";
 import myIITLogoMobile from "@assets/images/logo/myIIT-logo-mobile.png";
 import notificationIcon from "@assets/images/icons/w400/notifications_fill.svg";
 
-export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
+import { observer } from "mobx-react";
+import { useStores } from "@core/hooks";
+
+const HeaderComponent: React.FC<HeaderProps> = (props: HeaderProps) => {
     const matchesMobile = useMediaQuery('(max-width: 579px)');
+    const { navigationStore } = useStores();
 
     return (
         <Box className={classes.main}>
@@ -26,7 +30,7 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                             <Image className={classes.logo_img} src={matchesMobile ? myIITLogoMobile : myIITLogo} h="40px" w="auto" fit="contain" />
                         </Box>
                         {matchesMobile && <Box className={classes.title_page_block} ml="xs">
-                            <Text lts="-1px" size="extra-large" weight="medium">Название окна</Text>
+                            <Text lts="-1px" size="extra-large" weight="medium">{navigationStore.getNamePage()}</Text>
                         </Box>}
                     </Box>
                     <Box className={classes.right_side_block}>
@@ -44,3 +48,5 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
         </Box>
     );
 };
+
+export const Header = observer(HeaderComponent);

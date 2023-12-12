@@ -1,6 +1,13 @@
-import {observable, action, makeAutoObservable} from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
-import {IServiceLink} from "@models/service/IServiceLink";
+import { IServiceLink } from "@models/service/IServiceLink";
+
+import dashboardIcon from "@assets/images/icons/w400/dashboard_fill.svg";
+import newspaperIcon from "@assets/images/icons/w400/newspaper_fill.svg";
+import scheduleIcon from "@assets/images/icons/w400/schedule_fill.svg";
+import calendarIcon from "@assets/images/icons/w400/calendar_clock_fill.svg";
+import mailIcon from "@assets/images/icons/w400/mail_fill.svg";
+import { useNavigate } from 'react-router-dom';
 
 export interface INavigationStore {
     services: IServiceLink[];
@@ -12,26 +19,27 @@ export const dataServiceLinks: IServiceLink[] = [
     {
         label: "Дашборд",
         url: "dashboard",
+        icon: dashboardIcon
     },
     {
         label: "Новости",
         url: "news",
+        icon: newspaperIcon
     },
     {
         label: "Расписание",
         url: "timetable",
+        icon: scheduleIcon
     },
     {
         label: "Ивенты",
         url: "events",
+        icon: calendarIcon
     },
     {
         label: "Сообщения",
         url: "messages",
-    },
-    {
-        label: "Профиль",
-        url: "profile",
+        icon: mailIcon
     }
 
 ];
