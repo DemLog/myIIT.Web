@@ -1,0 +1,12 @@
+.main_container {
+    width: 100%;
+    display: flex;
+}
+
+.content {
+    width: 75%;
+}
+
+.function_block {
+    width: 25%;
+}
