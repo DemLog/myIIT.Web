@@ -13,6 +13,7 @@ import { TitleBlock } from "@components/UI";
 
 import profileIcon from "@assets/images/icons/w500/account_circle.svg";
 import { ProfileActionBlock } from "@components/Profile";
+import { ProfileAvatarBlock } from "@components/Profile/ProfileAvatarBlock";
 
 const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -28,7 +29,16 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
     return (
         <Box className={classes.main_container}>
             <Box className={classes.content}>
-                <TitleBlock title="Профиль" icon={profileIcon}/>
+                <TitleBlock title="Профиль" icon={profileIcon} />
+                <Box className={classes.content_box} mt="md">
+                    <XMasonry center={false} targetBlockWidth={230} smartUpdateCeil={1000}>
+                        <XBlock width={1}>
+                            <Box className={classes.profile_item} mx={matchesMobile ? 0 : 8} mb={16}>
+                                <ProfileAvatarBlock />
+                            </Box>
+                        </XBlock>
+                    </XMasonry>
+                </Box>
             </Box>
             <Box className={classes.function_block} ml="lg">
                 <ProfileActionBlock />
