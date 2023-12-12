@@ -21,11 +21,11 @@ const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) 
             <Header />
             <Box className={classes.main_block}>
                 <Container>
-                    <Box className={classes.main_side} mt="xs" px={matchesMobile ? 0 : "xs"}>
+                    <Box className={classes.main_side} mt={matchesMobile ? 0 : "xs"} px={matchesMobile ? 0 : "xs"}>
                         {!matchesMobile && <Box className={classes.left_side_block}>
                             {matchesPC ? <NavigationDesktop /> : <NavigationTablet />}
                         </Box>}
-                        <Box className={classes.right_side_block} ml={matchesMobile ? 0 : "lg"}>
+                        <Box className={classes.right_side_block} ml={matchesMobile ? 0 : "lg"} mb="52px">
                             <Outlet />
                         </Box>
                     </Box>
