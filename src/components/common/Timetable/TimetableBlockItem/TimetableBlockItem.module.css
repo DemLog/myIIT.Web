@@ -1,0 +1,37 @@
+.main {
+    width: 200px;
+    background: var(--background-dark);
+    border-radius: var(--mantine-radius-lg);
+}
+
+.teacher_box {
+
+}
+
+.teacher_title {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        height: 90%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--text-primary);
+    }
+}

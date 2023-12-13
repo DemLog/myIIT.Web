@@ -7,9 +7,12 @@ import { useMediaQuery } from "@mantine/hooks";
 
 import sticker from "@assets/images/dashboard/clouds-and-sun.png";
 import { getStyleColor } from "@styles/core/helpers/getStyleColor";
+import { observer } from "mobx-react";
+import { useStores } from "@core/hooks";
 
-export const WidgetWelcome: React.FC = () => {
+const WidgetWelcomeComponent: React.FC = () => {
     const matchesMobile = useMediaQuery('(max-width: 579px)');
+    const { userStore } = useStores();
 
     return (
         <Widget
@@ -18,7 +21,7 @@ export const WidgetWelcome: React.FC = () => {
         >
             <Box className={classes.content}>
                 <Box className={classes.title_box} py={4} px="md">
-                    <Text size={matchesMobile ? "extra-large" : "46px"} weight={matchesMobile ? "regular" : "medium"} color={getStyleColor(matchesMobile ? "text-primary" : "white")}>Доброе утро, студент!</Text>
+                    <Text size={matchesMobile ? "extra-large" : "46px"} weight={matchesMobile ? "regular" : "medium"} color={getStyleColor(matchesMobile ? "text-primary" : "white")}>Доброе утро, {userStore.getUser()?.firstName}!</Text>
                 </Box>
                 <Box className={classes.image_box}>
                     <Image src={sticker} h={matchesMobile ? "66px" : "76px"} w="auto" fit="contain" />
@@ -27,3 +30,5 @@ export const WidgetWelcome: React.FC = () => {
         </Widget>
     )
 }
+
+export const WidgetWelcome = observer(WidgetWelcomeComponent);

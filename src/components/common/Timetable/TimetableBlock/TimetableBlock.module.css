@@ -1,0 +1,38 @@
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs_box {
+    width: 50%;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    justify-content: end;
+}
+
+.timetable_info {
+    background: var(--background-dark);
+    border-radius: var(--mantine-radius-lg);
+}
+
+.info_box {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width: 579px) {
+    .tabs_box {
+        width: 100%;
+    }
+}

@@ -6,4 +6,5 @@ export interface CarouselTabsProps {
     tabs:CarouselTabType[];
     activeTab: string;
     onTabChange: (value: string) => void;
+    fullWidth?: boolean;
 }

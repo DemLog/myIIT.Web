@@ -19,7 +19,7 @@ export const EnterPINCodeModal: React.FC<EnterPINCodeModalProps> = (props: Enter
 
     const handleCancelButton = () => {
         props.onClose();
-        // props.callback(false)
+        props.callback(true)
     };
 
     return (

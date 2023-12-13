@@ -73,9 +73,11 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
 
                         {matchesMobile && <XBlock width={2}>
                             <Box className={classes.profile_tabs} mb={16} p="sm">
-                                <CarouselTabs tabs={tabsList} activeTab={activeTab} onTabChange={setActiveTab} />
-                                <Box className={classes.profile_tabs_block} mt={46}>
-                                    <Divider mb="xs"/>
+                                <Box className={classes.tabs}>
+                                    <CarouselTabs tabs={tabsList} activeTab={activeTab} onTabChange={setActiveTab} />
+                                </Box>
+                                <Box className={classes.profile_tabs_block} mt="xs">
+                                    <Divider mb="xs" />
                                     <CarouselTabsBlock activeTab={activeTab}>
                                         [
                                         <Box value="info">

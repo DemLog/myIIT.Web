@@ -8,7 +8,7 @@ import {Box} from "@mantine/core";
 
 export const CarouselTabs: React.FC<CarouselTabsProps> = (props: CarouselTabsProps) => {
     const totalTabs = props.tabs.length;
-    const tabWidth = totalTabs === 2 ? 50 : 45;
+    const tabWidth = props.fullWidth ? (100 / totalTabs - 2) : (totalTabs === 2 ? 50 : 45);
 
     return (
         <Box className={classes.main_container}>

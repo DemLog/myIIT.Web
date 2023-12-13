@@ -28,6 +28,7 @@ export const Modal: React.FC<ModalProps> = (props: ModalProps) => {
             radius="lg"
             centered
             size="auto"
+            zIndex={10000}
             overlayProps={{
                 blur: 4
             }}

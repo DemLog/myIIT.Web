@@ -13,7 +13,7 @@ type ApiResponse = {
     error?: { message: string };
 };
 
-const API_URL = "https://api.myiit.ru/methods/";
+const API_URL = "http://api.myiit.ru/methods/";
 
 const apiService = async ({method, url, body, token}: ApiParams): Promise<ApiResponse | null> => {
     try {

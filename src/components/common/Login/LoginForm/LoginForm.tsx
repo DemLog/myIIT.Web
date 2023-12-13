@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { LoginFormProps } from "./LoginForm.types";
 import classes from "./LoginForm.module.css";
 
@@ -9,32 +9,71 @@ import { Box, Image, Stack } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 
 import iitMoodleIcon from "@assets/images/icons/black-iit.png";
+import apiService from "@core/services/apiService";
+import { IUserLogin } from "@models/user/IUserLogin";
+import { observer } from "mobx-react";
+import { useStores } from "@core/hooks";
+import { useNavigate } from "react-router-dom";
 
 
-export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
+const LoginFormComponents: React.FC<LoginFormProps> = (props: LoginFormProps) => {
     const matchesMobile = useMediaQuery('(max-width: 579px)');
 
     const [openedSPModal, { open: openSPModal, close: closeSPModal }] = useDisclosure(false);
     const [openedEPCModal, { open: openEPCModal, close: closeEPCModal }] = useDisclosure(false);
 
-    const handleSavePassword = (status: boolean) => {
+    const [loginValue, setLoginValue] = useState("");
+    const [passwordValue, setPasswordValue] = useState("");
+
+    const { userStore } = useStores();
+    const navigate = useNavigate();
+
+    const handleSavePassword = async (status: boolean) => {
         if (status) {
             openEPCModal();
+        } else {
+            const data = await apiService({
+                method: "POST", url: "auth.login", body: {
+                    login: loginValue,
+                    password: passwordValue
+                }
+            });
+
+            if (data?.response_code === 201) {
+                userStore.setSession(data.data as IUserLogin);
+                navigate("/");
+            }
+        }
+    };
+
+    const handleInputPinCode = async (status: boolean) => {
+        if (status) {
+            const data = await apiService({
+                method: "POST", url: "auth.login", body: {
+                    login: loginValue,
+                    password: passwordValue
+                }
+            });
+
+            if (data?.response_code === 201) {
+                userStore.setSession(data.data as IUserLogin);
+                navigate("/");
+            }
         }
     };
 
     return (
         <Fragment>
-            <SavePasswordModal opened={openedSPModal} onClose={closeSPModal} callback={handleSavePassword}/>
-            <EnterPINCodeModal opened={openedEPCModal} onClose={closeEPCModal} />
+            <SavePasswordModal opened={openedSPModal} onClose={closeSPModal} callback={handleSavePassword} />
+            <EnterPINCodeModal opened={openedEPCModal} onClose={closeEPCModal} callback={handleInputPinCode} />
             <Box className={classes.main}>
                 <Card py="md" px="lg" w="100%">
                     <Box className={classes.title_block}>
                         <Text size={matchesMobile ? "large" : "extra-large"} weight="medium" color="text-primary" ta="center">Авторизация</Text>
                     </Box>
                     <Stack className={classes.input_block} gap="xs" mt="lg">
-                        <InputText placeholder="Логин Moodle" variant="default" size={matchesMobile ? "medium" : "large"} />
-                        <InputPassword placeholder="Пароль" variant="default" size={matchesMobile ? "medium" : "large"} />
+                        <InputText placeholder="Логин Moodle" variant="default" size={matchesMobile ? "medium" : "large"} onChange={e => setLoginValue(e.target.value)} />
+                        <InputPassword placeholder="Пароль" variant="default" size={matchesMobile ? "medium" : "large"} onChange={e => setPasswordValue(e.target.value)} />
                     </Stack>
                     <Box className={classes.iit_moodle_block} mt="xs">
                         <Image src={iitMoodleIcon} h="18px" w="auto" fit="contain" />
@@ -48,3 +87,5 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
         </Fragment>
     );
 };
+
+export const LoginForm = observer(LoginFormComponents);

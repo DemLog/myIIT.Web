@@ -6,6 +6,8 @@ import {LoginPage} from "@pages/LoginPage";
 import {DashboardPage} from "@pages/DashboardPage";
 import {NotFoundPage} from "@pages/NotFound";
 import {ProfilePage} from "@pages/ProfilePage";
+import { TimetablePage } from "@pages/TimetablePage";
+import { EventsPage } from "@pages/EventsPage/EventsPage";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
             {
                 path: "/profile",
                 element: <ProfilePage />
+            },
+            {
+                path: "/timetable",
+                element: <TimetablePage />
+            },
+            {
+                path: "/events",
+                element: <EventsPage />
             },
             {
                 path: "*",

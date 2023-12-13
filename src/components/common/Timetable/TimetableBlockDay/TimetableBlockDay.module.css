@@ -1,0 +1,5 @@
+.timetable_content {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}

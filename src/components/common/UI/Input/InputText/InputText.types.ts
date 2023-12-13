@@ -1,7 +1,7 @@
 import {InputSize} from "@components/UI/Input";
-import {InputVariant} from "@mantine/core";
+import {ElementProps, InputVariant} from "@mantine/core";
 
-export interface InputTextProps {
+export interface InputTextProps extends ElementProps<'input', 'size'> {
     variant: InputVariant;
     placeholder?: string;
     size: InputSize;
