@@ -1,0 +1,1 @@
+export { WidgetTimetable } from "./WidgetTimetable";

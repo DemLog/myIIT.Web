@@ -9,7 +9,7 @@ import { Text, Button } from "@components/UI";
 import { ModalMobile } from "./ModalMobile";
 
 import { ReactSVG } from 'react-svg';
-import closeIcon from "@assets/images/icons/close-icon.svg";
+import closeIcon from "@assets/images/icons/w400/close-icon.svg";
 
 
 export const Modal: React.FC<ModalProps> = (props: ModalProps) => {

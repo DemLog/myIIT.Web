@@ -18,6 +18,7 @@ export const MitColors = {
     backgroundCardLight: "linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(244,244,244,0.5) 100%)",
     backgroundDividerLight: '#B7B7B7',
     backgroundBlockLight: '#FFFFFF',
+    backgroundDashboardButtonLight: "linear-gradient(145deg, rgba(91,108,240,1) 20%, rgba(149,220,251,1) 100%)",
 
     textPrimaryLight: '#4C5070',
     textSecondaryLight: '#929292',
@@ -39,6 +40,7 @@ export const MitColors = {
     backgroundCardDark: "linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(244,244,244,0.5) 100%)",
     backgroundDividerDark: '#B7B7B7',
     backgroundBlockDark: '#FFFFFF',
+    backgroundDashboardButtonDark: "linear-gradient(145deg, rgba(91,108,240,1) 20%, rgba(149,220,251,1) 100%)",
 
     textPrimaryDark: '#4C5070',
     textSecondaryDark: '#929292',
@@ -197,6 +199,7 @@ export const CommonResolver: CSSVariablesResolver = (theme) => ({
         '--background-card': theme.other.backgroundCardLight,
         '--background-divider': theme.other.backgroundDividerLight,
         '--background-block': theme.other.backgroundBlockLight,
+        '--background-dashboard-button': theme.other.backgroundDashboardButtonLight,
 
         '--text-primary': theme.other.textPrimaryLight,
         '--text-secondary': theme.other.textSecondaryLight,
@@ -218,6 +221,7 @@ export const CommonResolver: CSSVariablesResolver = (theme) => ({
         '--background-card': theme.other.backgroundCardLight,
         '--background-divider': theme.other.backgroundDividerLight,
         '--background-block': theme.other.backgroundBlockLight,
+        '--background-dashboard-button': theme.other.backgroundDashboardButtonDark,
 
         '--text-primary': theme.other.textPrimaryLight,
         '--text-secondary': theme.other.textSecondaryLight,

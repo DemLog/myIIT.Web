@@ -3,7 +3,7 @@ import { LoginPageProps } from "./LoginPage.types";
 import classes from "./LoginPage.module.css";
 
 import { Box, Image, Stack } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { useDocumentTitle, useMediaQuery } from "@mantine/hooks";
 
 import myIITLogo from "@assets/images/logo/myIIT-logo.png";
 
@@ -12,6 +12,8 @@ import { LoginForm, LoginLeftBlock } from "@components/Login";
 
 export const LoginPage: React.FC<LoginPageProps> = (props: LoginPageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)')
+
+    useDocumentTitle("Авторизация - myIIT");
 
     return (
         <Box className={classes.main}>

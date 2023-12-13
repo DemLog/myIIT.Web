@@ -27,4 +27,6 @@ export type MitColor =
     "disabled"
     | "disabled-light"
     | "disabled-dark"
-    | "disabled-neutral";
+    | "disabled-neutral" |
+    "background-light" |
+    "background-dark";

@@ -6,7 +6,7 @@ import { ActionIcon, Box, Divider, Image, Group, ScrollArea, Modal as MModal } f
 import { Text, Button } from "@components/UI";
 
 import { ReactSVG } from 'react-svg';
-import closeIcon from "@assets/images/icons/close-icon.svg";
+import closeIcon from "@assets/images/icons/w400/close-icon.svg";
 
 export const ModalMobile: React.FC<ModalMobileProps> = (props: ModalMobileProps) => {
     const { withCloseButton = true } = props;

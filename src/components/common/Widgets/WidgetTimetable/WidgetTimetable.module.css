@@ -1,0 +1,10 @@
+.content {
+    background: rgba(216,209,164,0.6);
+    border-radius: var(--mantine-radius-lg);
+}
+
+@media (max-width: 579px) {
+    .content {
+        background: var(--background-dark);
+    }
+}

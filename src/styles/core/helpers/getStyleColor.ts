@@ -35,6 +35,8 @@ const createDefaultColors = (colorScheme: string): StyleMapping => ({
     "disabled-light": MitColors.disabledLight,
     "disabled-dark": MitColors.disabledDark,
     "disabled-neutral": MitColors.disabledNeutral,
+    "background-light": MitColors.backgroundLight,
+    "background-dark": MitColors.backgroundDark
 });
 
 export const getStyleColor = (value: MitColor | DefaultMantineColor): string => {
