@@ -12,6 +12,7 @@ import { XBlock, XMasonry } from "react-xmasonry";
 import { TitleBlock } from "@components/UI";
 
 import timetableIcon from "@assets/images/icons/w500/schedule.svg";
+import { TimetableBlock } from "@components/Timetable";
 
 const TimetablePageComponent: React.FC<TimetablePageProps> = (props: TimetablePageProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -32,9 +33,13 @@ const TimetablePageComponent: React.FC<TimetablePageProps> = (props: TimetablePa
                         <TitleBlock title="Расписание" icon={timetableIcon} />
                     </Box>
                 </Box>}
-                <Box className={classes.content_box} mt={matchesMobile ? 0 : "md"}>
+                <Box className={classes.content_box} mt={matchesMobile ? "xs" : "md"}>
                     <XMasonry center={false} targetBlockWidth={matchesPC ? 237 : 267} smartUpdateCeil={1000}>
-                        
+                    <XBlock width={3}>
+                            <Box className={classes.timetable_item} mb={16}>
+                                <TimetableBlock />
+                            </Box>
+                        </XBlock>
                     </XMasonry>
                 </Box>
             </Box>
