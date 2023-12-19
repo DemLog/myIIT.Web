@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { LoginFormProps } from "./LoginForm.types";
 import classes from "./LoginForm.module.css";
 
@@ -14,6 +14,10 @@ import { IUserLogin } from "@models/user/IUserLogin";
 import { observer } from "mobx-react";
 import { useStores } from "@core/hooks";
 import { useNavigate } from "react-router-dom";
+import { ReactSVG } from "react-svg";
+import personIcon from "@assets/images/icons/w400/person_fill.svg";
+import lockIcon from "@assets/images/icons/w400/lock_fill.svg";
+import { toast } from "react-toastify";
 
 
 const LoginFormComponents: React.FC<LoginFormProps> = (props: LoginFormProps) => {
@@ -24,41 +28,64 @@ const LoginFormComponents: React.FC<LoginFormProps> = (props: LoginFormProps) =>
 
     const [loginValue, setLoginValue] = useState("");
     const [passwordValue, setPasswordValue] = useState("");
+    const [loadingData, setLoadingData] = useState(false);
 
     const { userStore } = useStores();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const loadingData = async () => {
+            if (userStore.getSession()) {
+                navigate("/");
+            }
+        }
+
+        loadingData();
+    }, []);
+
+    const handleSubmitButton = async () => {
+        setLoadingData(true);
+
+        const response = await apiService({
+            method: "POST", url: "auth.login", body: {
+                login: loginValue,
+                password: passwordValue
+            }
+        });
+
+        if (response?.response_code === 201) {
+            const data = response.data as IUserLogin;
+
+            userStore.setSession(data);
+            if (data.moodleConsent) {
+                navigate("/");
+            } else {
+                openSPModal();
+            }
+        } else {
+            toast.error(response?.error ? response.error.message : "Ошибка авторизации!");
+        }
+        setLoadingData(false);
+    };
 
     const handleSavePassword = async (status: boolean) => {
         if (status) {
             openEPCModal();
         } else {
-            const data = await apiService({
-                method: "POST", url: "auth.login", body: {
-                    login: loginValue,
-                    password: passwordValue
-                }
-            });
-
-            if (data?.response_code === 201) {
-                userStore.setSession(data.data as IUserLogin);
-                navigate("/");
-            }
+            navigate("/");
         }
     };
 
     const handleInputPinCode = async (status: boolean) => {
         if (status) {
             const data = await apiService({
-                method: "POST", url: "auth.login", body: {
+                method: "POST", url: "auth.savePassword", body: {
                     login: loginValue,
                     password: passwordValue
-                }
+                },
+                token: userStore.getSession()?.token
             });
-
-            if (data?.response_code === 201) {
-                userStore.setSession(data.data as IUserLogin);
-                navigate("/");
-            }
+            navigate("/");
         }
     };
 
@@ -66,23 +93,21 @@ const LoginFormComponents: React.FC<LoginFormProps> = (props: LoginFormProps) =>
         <Fragment>
             <SavePasswordModal opened={openedSPModal} onClose={closeSPModal} callback={handleSavePassword} />
             <EnterPINCodeModal opened={openedEPCModal} onClose={closeEPCModal} callback={handleInputPinCode} />
-            <Box className={classes.main}>
-                <Card py="md" px="lg" w="100%">
-                    <Box className={classes.title_block}>
-                        <Text size={matchesMobile ? "large" : "extra-large"} weight="medium" color="text-primary" ta="center">Авторизация</Text>
-                    </Box>
-                    <Stack className={classes.input_block} gap="xs" mt="lg">
-                        <InputText placeholder="Логин Moodle" variant="default" size={matchesMobile ? "medium" : "large"} onChange={e => setLoginValue(e.target.value)} />
-                        <InputPassword placeholder="Пароль" variant="default" size={matchesMobile ? "medium" : "large"} onChange={e => setPasswordValue(e.target.value)} />
-                    </Stack>
-                    <Box className={classes.iit_moodle_block} mt="xs">
-                        <Image src={iitMoodleIcon} h="18px" w="auto" fit="contain" />
-                        <Text size="extra-small" weight="light" fs="italic" color="black">Вход происходит через ИИТ Moodle</Text>
-                    </Box>
-                    <Box className={classes.button_block} mt="lg">
-                        <Button text="Войти" color="primary" size="extra-large" variant="filled" fullWidth onClick={openSPModal} />
-                    </Box>
-                </Card>
+            <Box className={classes.main} py="md" px="xl" w="100%">
+                <Box className={classes.title_block}>
+                    <Text size={matchesMobile ? "large" : "extra-large"} weight="medium" color="text-primary" ta="center">Авторизация</Text>
+                </Box>
+                <Stack className={classes.input_block} gap="xs" mt={matchesMobile ? "lg" : "xl"}>
+                    <InputText leftSection={<ReactSVG className={classes.icon} src={personIcon} />} placeholder="Логин Moodle" variant="default" size="medium" onChange={e => setLoginValue(e.target.value)} />
+                    <InputPassword leftSection={<ReactSVG className={classes.icon} src={lockIcon} />} placeholder="Пароль" variant="default" size="medium" onChange={e => setPasswordValue(e.target.value)} />
+                </Stack>
+                <Box className={classes.iit_moodle_block} mt="xs">
+                    <Image src={iitMoodleIcon} h="18px" w="auto" fit="contain" />
+                    <Text size="12px" weight="light" fs="italic" color="black" ml={2}>Вход происходит через ИИТ Moodle</Text>
+                </Box>
+                <Box className={classes.button_block} mt={matchesMobile ? "lg" : "xl"}>
+                    <Button text="Войти" color="primary" size="large" variant="filled" fullWidth onClick={handleSubmitButton} loading={loadingData} />
+                </Box>
             </Box>
         </Fragment>
     );

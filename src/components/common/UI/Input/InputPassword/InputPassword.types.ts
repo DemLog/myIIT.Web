@@ -1,8 +1,8 @@
-import {InputSize} from "@components/UI/Input";
-import {ElementProps, InputVariant} from "@mantine/core";
+import { TextInputProps } from "@mantine/core";
+import { MitSize } from "@styles/core";
+import { MitColor } from "@styles/core/common.types";
 
-export interface InputPasswordProps extends ElementProps<'input', 'size'> {
-    variant: InputVariant;
-    placeholder?: string;
-    size: InputSize;
+export interface InputPasswordProps extends TextInputProps {
+    size?: MitSize;
+    color?: MitColor;
 }

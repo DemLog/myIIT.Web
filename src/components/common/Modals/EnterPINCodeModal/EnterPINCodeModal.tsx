@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EnterPINCodeModalProps } from "./EnterPINCodeModal.types";
 import classes from "./EnterPINCodeModal.module.css";
 
@@ -17,9 +17,20 @@ export const EnterPINCodeModal: React.FC<EnterPINCodeModalProps> = (props: Enter
 
     const [valuePIN, setValuePIN] = useState<string>("");
 
-    const handleCancelButton = () => {
+    useEffect(() => {
+        if (valuePIN.length === 4) {
+            handleAcceptAction();
+        }
+    }, [valuePIN]);
+
+    const handleAcceptAction = () => {
         props.onClose();
         props.callback(true)
+    };
+
+    const handleCancelButton = () => {
+        props.onClose();
+        props.callback(false)
     };
 
     return (

@@ -1,5 +1,8 @@
 .main {
     width: 100%;
+    background: var(--background-card-auth);
+    border-radius: var(--mantine-radius-lg);
+    box-shadow: 0px 2px 1px 1px rgba(0,0,0,0.2);
 }
 
 .title_block {
@@ -18,4 +21,26 @@
 
 .button_block {
     width: 100%;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--text-primary);
+    }
 }
