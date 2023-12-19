@@ -13,7 +13,7 @@ export const MitColors = {
     secondaryDarkLight: '#0099AB',
     secondaryNeutralLight: '#44D1E4',
 
-    backgroundMainLight: "linear-gradient(180deg, rgba(244,244,244,1) 30%, rgba(222,245,250,0) 100%)",
+    backgroundMainLight: "linear-gradient(180deg, rgba(231,240,247,1) 0%, rgba(240,234,234,1) 50%, rgba(245,235,234,1) 100%)",
     backgroundAuthLight: "linear-gradient(180deg, rgba(91,108,240,0.5) 0%, rgba(217,217,217,0) 70%)",
     backgroundCardLight: "rgba(0,0,0,0.04)",
     backgroundCardAuthLight: "linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(244,244,244,0.5) 100%)",
@@ -25,7 +25,7 @@ export const MitColors = {
     textSecondaryLight: '#929292',
 
 
-    // Light theme
+    // Dark theme
     primaryMainDark: '#5B6CF0',
     primaryLightDark: '#A3ABF6',
     primaryDarkDark: '#293CD2',
@@ -36,7 +36,7 @@ export const MitColors = {
     secondaryDarkDark: '#0099AB',
     secondaryNeutralDark: '#44D1E4',
 
-    backgroundMainDark: "linear-gradient(180deg, rgba(244,244,244,1) 30%, rgba(222,245,250,0) 100%)",
+    backgroundMainDark: "linear-gradient(180deg, rgba(231,240,247,1) 0%, rgba(240,234,234,1) 50%, rgba(245,235,234,1) 100%)",
     backgroundAuthDark: "linear-gradient(180deg, rgba(91,108,240,0.5) 0%, rgba(217,217,217,0) 70%)",
     backgroundCardDark: "rgba(0,0,0,0.04)",
     backgroundCardAuthDark: "rgba(0,0,0,0.04)",

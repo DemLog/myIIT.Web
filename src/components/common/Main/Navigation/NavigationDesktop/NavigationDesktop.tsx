@@ -10,6 +10,7 @@ import { useStores } from "@core/hooks";
 import { useNavigate } from "react-router-dom";
 
 import { ReactSVG } from "react-svg";
+import expandIcon from "@assets/images/icons/w200/expand_more_fill.svg";
 
 const NavigationDesktopComponent: React.FC<NavigationDesktopProps> = (props: NavigationDesktopProps) => {
     const { navigationStore } = useStores();
@@ -20,7 +21,10 @@ const NavigationDesktopComponent: React.FC<NavigationDesktopProps> = (props: Nav
     };
 
     return (
-        <Box className={classes.main_container} p="sm">
+        <Box className={classes.main_container}>
+            <Box className={classes.title_block}>
+                <Text size="medium" weight="medium" color="text-secondary" mb={8}>Меню</Text>
+            </Box>
             <Stack gap={2}>
                 {navigationStore.services.map((button, index) => (
                     <UnstyledButton
@@ -30,10 +34,16 @@ const NavigationDesktopComponent: React.FC<NavigationDesktopProps> = (props: Nav
                         data-active={index === navigationStore.active}
                     >
                         <Box className={classes.button_content} p={8}>
-                            <ReactSVG className={classes.icon} src={button.icon as string} />
-                            <Text size="medium" weight="medium">
-                                {button.label}
-                            </Text>
+                            <Box className={classes.button_left}>
+                                <ReactSVG className={classes.icon} src={button.icon as string} />
+                                <Text size="small" weight="medium" ml={6}>
+                                    {button.label}
+                                </Text>
+                            </Box>
+
+                            <Box className={classes.button_right}>
+                                <ReactSVG className={classes.icon_expand} src={expandIcon} />
+                            </Box>
                         </Box>
                     </UnstyledButton>
                 ))}

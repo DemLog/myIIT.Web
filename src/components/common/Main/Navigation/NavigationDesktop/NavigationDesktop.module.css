@@ -1,7 +1,5 @@
 .main_container {
-    background-color: var(--background-block);
-    box-shadow: 0px 0px 2px 0px rgba(94, 94, 94, 0.12);
-    border-radius: var(--mantine-radius-lg);
+    width: 100%;
 }
 
 .button_menu {
@@ -19,7 +17,7 @@
 
     &[data-active="false"] {
         p {
-            color: var(--text-secondary) !important;
+            color: var(--text-primary) !important;
         }
     }
 
@@ -37,14 +35,19 @@
 .button_content {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 6px;
 }
 
+.button_left {
+    display: flex;
+    align-items: center;
+}
+
 .icon {
-    height: 28px;
-    width: 28px;
+    height: 20px;
+    width: 20px;
 
     div {
         height: 100%;
@@ -61,6 +64,29 @@
     }
 
     path {
-        fill: var(--disabled-dark);
+        fill: var(--text-primary);
+    }
+}
+
+.icon_expand {
+    height: 16px;
+    width: 16px;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        height: 90%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--text-primary);
     }
 }

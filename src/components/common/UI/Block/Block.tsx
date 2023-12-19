@@ -9,7 +9,7 @@ export const Block: React.FC<BlockProps> = (props: BlockProps) => {
     const { children } = props;
 
     return (
-        <Box className={classes.block} {...props} p="sm">
+        <Box className={classes.block} {...props} p="xs">
             {props.title &&
                 <Box className={classes.title_box} mb="sm">
                     <Text size="small" weight="medium">{props.title}</Text>

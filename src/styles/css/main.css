@@ -3,7 +3,7 @@
 body {
     font-family: IBM Plex Sans, Sora, sans-serif;
     height: 100%;
-    background: #F3F3F3;
+    background: var(--background-main)
 }
 
 #root {

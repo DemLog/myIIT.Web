@@ -5,7 +5,7 @@ import classes from "./MainLayout.module.css";
 import { Box } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
-import { Header } from "@components/Main";
+import { FooterLinksBlock, Header, ProfileCard } from "@components/Main";
 import { Container } from "@components/UI";
 import { NavigationDesktop, NavigationMobile, NavigationTablet } from "../Navigation";
 
@@ -14,6 +14,10 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useStores } from "@core/hooks";
 import apiService from "@core/services/apiService";
 import { IUserProfile } from "@models/user/IUserProfile";
+import { toast } from "react-toastify";
+
+import bgImage1 from "@assets/images/bg-image-1.png";
+import bgImage2 from "@assets/images/bg-image-2.png";
 
 const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -32,6 +36,7 @@ const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) 
                 const data = await apiService({ method: "GET", url: "profile.getUser", token: userStore.getSession()?.token });
                 if (data?.response_code === 200) {
                     userStore.setUser(data.data as IUserProfile);
+                    // toast.success("Вход успешно выполнен!");
                 } else {
                     navigate("/login");
                 }
@@ -45,14 +50,24 @@ const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) 
     return (
         <Box className={classes.main_container}>
             <Header />
-            <Box className={classes.main_block}>
+            <Box className={classes.main_block} style={{
+                backgroundImage: `url(${bgImage1}), url(${bgImage2})`
+            }}>
                 <Container>
-                    <Box className={classes.main_side} mt={matchesMobile ? 0 : "xs"} px={matchesMobile ? 0 : "xs"}>
-                        {!matchesMobile && <Box className={classes.left_side_block}>
-                            {matchesPC ? <NavigationDesktop /> : <NavigationTablet />}
+                    <Box className={classes.main_side} my={matchesMobile ? 0 : "lg"} px="xs">
+                        {matchesPC && <Box className={classes.left_side_block}>
+                            <Box className={classes.left_side_main}>
+                                <ProfileCard />
+                                <NavigationDesktop />
+                            </Box>
+                            <Box className={classes.left_side_footer}>
+                                {/* <FooterLinksBlock /> */}
+                            </Box>
                         </Box>}
-                        <Box className={classes.right_side_block} ml={matchesMobile ? 0 : "lg"} mb="52px">
-                            <Outlet />
+                        <Box className={classes.right_side_block} mb="52px" pl={26}>
+                            <Box className={classes.right_side_main} p="sm">
+                                <Outlet />
+                            </Box>
                         </Box>
                     </Box>
                 </Container>

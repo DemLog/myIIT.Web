@@ -6,7 +6,6 @@ import { ActionIcon, Box, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 import { Container, Text } from "@components/UI";
-import { HeaderProfileButton } from "./HeaderProfileButton";
 import { getStyleColor } from "@styles/core/helpers/getStyleColor";
 
 import { ReactSVG } from "react-svg";
@@ -29,9 +28,9 @@ const HeaderComponent: React.FC<HeaderProps> = (props: HeaderProps) => {
                         <Box className={classes.logo_block}>
                             <Image className={classes.logo_img} src={matchesMobile ? myIITLogoMobile : myIITLogo} h="40px" w="auto" fit="contain" />
                         </Box>
-                        {matchesMobile && <Box className={classes.title_page_block} ml="xs">
-                            <Text lts="-1px" size="extra-large" weight="medium">{navigationStore.getNamePage()}</Text>
-                        </Box>}
+                        <Box className={classes.title_page_block}>
+                            <Text size="extra-large" weight="medium">{navigationStore.getNamePage()}</Text>
+                        </Box>
                     </Box>
                     <Box className={classes.right_side_block}>
                         <Box className={classes.action_button_block}>
@@ -39,9 +38,6 @@ const HeaderComponent: React.FC<HeaderProps> = (props: HeaderProps) => {
                                 <ReactSVG className={classes.notification_icon} src={notificationIcon} />
                             </ActionIcon>
                         </Box>
-                        {!matchesMobile && <Box className={classes.profile_block} ml="md">
-                            <HeaderProfileButton />
-                        </Box>}
                     </Box>
                 </Box>
             </Container>

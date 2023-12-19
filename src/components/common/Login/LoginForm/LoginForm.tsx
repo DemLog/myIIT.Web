@@ -93,7 +93,7 @@ const LoginFormComponents: React.FC<LoginFormProps> = (props: LoginFormProps) =>
         <Fragment>
             <SavePasswordModal opened={openedSPModal} onClose={closeSPModal} callback={handleSavePassword} />
             <EnterPINCodeModal opened={openedEPCModal} onClose={closeEPCModal} callback={handleInputPinCode} />
-            <Box className={classes.main} py="md" px="xl" w="100%">
+            <Box className={classes.main} py="md" px={matchesMobile ? "md" : "xl"} w="100%">
                 <Box className={classes.title_block}>
                     <Text size={matchesMobile ? "large" : "extra-large"} weight="medium" color="text-primary" ta="center">Авторизация</Text>
                 </Box>
