@@ -1,0 +1,37 @@
+.drawer {
+    margin-top: 56px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    height: 100%;
+    width: 100%;
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        height: 80%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--disabled-dark)
+    }
+}
+
+@media (max-width: 579px) {
+    .header {
+        display: none;
+    }
+}

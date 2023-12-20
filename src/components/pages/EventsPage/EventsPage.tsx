@@ -59,12 +59,7 @@ const EventsPageComponent: React.FC<TimetablePageProps> = (props: TimetablePageP
                 <Text>Вы действительно хотите пойти?</Text>
             </Modal>
             <Box className={classes.content}>
-                {!matchesMobile && <Box className={classes.header_block}>
-                    <Box className={classes.title_block}>
-                        <TitleBlock title="Мероприятия" icon={calendarIcon} />
-                    </Box>
-                </Box>}
-                <Box className={classes.content_box} mt={matchesMobile ? "xs" : "md"}>
+                <Box className={classes.content_box}>
                     <XMasonry center={false} targetBlockWidth={matchesPC ? 237 : 267} smartUpdateCeil={1000}>
                         <XBlock width={3}>
                             <Box className={classes.timetable_item} mb={16}>

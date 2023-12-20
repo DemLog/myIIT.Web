@@ -9,7 +9,7 @@ import { TimetableBlockItem } from "../TimetableBlockItem";
 export const TimetableBlockDay: React.FC<TimetableBlockDayProps> = (props: TimetableBlockDayProps) => {
     return (
         <ScrollArea scrollbarSize={10} scrollHideDelay={0}>
-            {!props.joke && <Fragment><Box className={classes.timetable_content} mt="xs">
+            {/* {!props.joke && <Fragment><Box className={classes.timetable_content} mt="xs">
                 <TimetableBlockItem type="Лекция" subject="Управление ИТ-проектами и жизненным циклом ПО" teacher="" cabinet="" />
                 <TimetableBlockItem type="Практика" subject="Управление ИТ-проектами и жизненным циклом ПО" teacher="" cabinet="" />
             </Box>
@@ -52,7 +52,7 @@ export const TimetableBlockDay: React.FC<TimetableBlockDayProps> = (props: Timet
                         <Text>21:25</Text>
                     </Box>
                 } />
-            </Stepper></Fragment>}
+            </Stepper></Fragment>} */}
         </ScrollArea>
     );
 }

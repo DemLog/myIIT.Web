@@ -9,8 +9,8 @@ import { TimetableBlockItem } from "../TimetableBlockItem";
 export const TimetableBlockWeek: React.FC<TimetableBlockWeekProps> = (props: TimetableBlockWeekProps) => {
     return (
         <ScrollArea scrollbarSize={10} scrollHideDelay={0} w="100%">
-            <Box className={classes.main} mt="xs">
-                {/* <Stepper active={0} my="lg" orientation="vertical">
+            {/* <Box className={classes.main} mt="xs">
+                <Stepper active={0} my="lg" orientation="vertical">
                     <Stepper.Step label={
                         <Box>
                             <Text>9:00</Text>
@@ -22,7 +22,7 @@ export const TimetableBlockWeek: React.FC<TimetableBlockWeekProps> = (props: Tim
                     <Stepper.Step label="9:00" />
                     <Stepper.Step label="9:00" />
                     <Stepper.Step label="9:00" />
-                </Stepper> */}
+                </Stepper> 
                 <Box className={classes.content}>
                     <Box className={classes.header_day}>
                         <Box className={classes.header_day_item} p="xs">
@@ -73,7 +73,7 @@ export const TimetableBlockWeek: React.FC<TimetableBlockWeekProps> = (props: Tim
                         </Box>
                     </Box>
                 </Box>
-            </Box>
+            </Box> */}
         </ScrollArea>
     );
 }

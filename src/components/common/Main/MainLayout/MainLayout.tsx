@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { MainLayoutProps } from "./MainLayout.types";
 import classes from "./MainLayout.module.css";
 
-import { Box } from "@mantine/core";
+import { Box, ScrollArea } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 import { FooterLinksBlock, Header, ProfileCard } from "@components/Main";
@@ -12,12 +12,13 @@ import { NavigationDesktop, NavigationMobile, NavigationTablet } from "../Naviga
 import { observer } from "mobx-react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useStores } from "@core/hooks";
-import apiService from "@core/services/apiService";
+import apiService, { apiServiceWs } from "@core/services/apiService";
 import { IUserProfile } from "@models/user/IUserProfile";
 import { toast } from "react-toastify";
 
 import bgImage1 from "@assets/images/bg-image-1.png";
 import bgImage2 from "@assets/images/bg-image-2.png";
+import { IResponseNotification } from "@models/notification/IResponseNotification";
 
 const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     const matchesPC = useMediaQuery('(min-width: 1024px)');
@@ -54,7 +55,7 @@ const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) 
                 backgroundImage: `url(${bgImage1}), url(${bgImage2})`
             }}>
                 <Container>
-                    <Box className={classes.main_side} my={matchesMobile ? 0 : "lg"} px="xs">
+                    <Box className={classes.main_side} my={matchesMobile ? 0 : "lg"} px="xs" pb={matchesPC ? 58 : matchesMobile ? 136 : 120}>
                         {matchesPC && <Box className={classes.left_side_block}>
                             <Box className={classes.left_side_main}>
                                 <ProfileCard />
@@ -64,15 +65,17 @@ const MainLayoutComponent: React.FC<MainLayoutProps> = (props: MainLayoutProps) 
                                 {/* <FooterLinksBlock /> */}
                             </Box>
                         </Box>}
-                        <Box className={classes.right_side_block} mb="52px" pl={26}>
-                            <Box className={classes.right_side_main} p="sm">
-                                <Outlet />
+                        <Box className={classes.right_side_block} mb="52px" pl={matchesPC ? 26 : 0} mt={matchesMobile ? "sm" : 0}>
+                            <Box className={classes.right_side_main} p={matchesMobile ? 0 : "md"} py={matchesMobile ? "xs" : "xs"}>
+                                <ScrollArea h="100%" w="100%" type="never">
+                                    <Outlet />
+                                </ScrollArea>
                             </Box>
                         </Box>
                     </Box>
                 </Container>
             </Box>
-            {matchesMobile && <NavigationMobile />}
+            {!matchesPC && <NavigationMobile />}
         </Box>
     );
 };

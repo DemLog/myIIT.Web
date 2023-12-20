@@ -55,24 +55,26 @@
 }
 
 @media (max-width: 1024px) and (min-width: 579px) {
-    .left_side_block {
-        width: 70px;
-        background-color: var(--background-white);
-        position: fixed;
-        height: 100vh;
-        top: 56px;
-        left: 0;
-        z-index: 1000;
+    .main_block {
+        margin-bottom: 75px;
     }
 
-    .right_side_block {
-        width: 100%;
-        margin-left: 70px !important;
+    .main_block {
+        background-size: 440px, 0px;
+        background-position: 110% 0, 31% 100%;
     }
 }
 
 @media (max-width: 579px) {
-    .right_side_block {
-        width: 100%;
+    .main_block {
+        background-size: 0px, 0px;
+    }
+
+    .main_side {
+        height: 100%;
+    }
+
+    .right_side_main {
+        background: none;
     }
 }

@@ -1,9 +1,9 @@
 export enum NotificationElementLevel {
-    INFO,
-    WARNING,
-    ERROR,
-    PRIMARY,
-    SECONDARY
+    INFO = 'info',
+    WARNING = 'warning',
+    ERROR = 'error',
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary'
 }
 
 export interface INotificationElement {

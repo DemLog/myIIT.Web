@@ -26,7 +26,7 @@ const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPa
         <Box className={classes.main_container}>
             <XMasonry center={false} targetBlockWidth={360} smartUpdateCeil={1000}>
                 <XBlock width={3}>
-                    <Box className={classes.dashboard_item} mx={matchesMobile ? 0 : 8} mb={16}>
+                    <Box className={classes.dashboard_item} mb={16}>
                         <WidgetWelcome />
                     </Box>
                 </XBlock>

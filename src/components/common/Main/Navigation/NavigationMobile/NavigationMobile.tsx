@@ -2,16 +2,20 @@ import React from "react";
 import { NavigationMobileProps } from "./NavigationMobile.types";
 import classes from "./NavigationMobile.module.css";
 
-import { Box, UnstyledButton } from "@mantine/core";
+import { Avatar, Box, UnstyledButton } from "@mantine/core";
 import { Text } from "@components/UI";
 import { ReactSVG } from "react-svg";
+import expandIcon from "@assets/images/icons/w200/expand_more_fill.svg";
 
 import { observer } from "mobx-react";
 import { useStores } from "@core/hooks";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
 
 export const NavigationMobileComponent: React.FC<NavigationMobileProps> = (props: NavigationMobileProps) => {
-    const { navigationStore } = useStores();
+    const matchesMobile = useMediaQuery('(max-width: 579px)');
+
+    const { navigationStore, userStore } = useStores();
     const navigation = useNavigate();
 
     const serviceList = [
@@ -52,17 +56,28 @@ export const NavigationMobileComponent: React.FC<NavigationMobileProps> = (props
                     >
                         <Box className={classes.button_content}>
                             <ReactSVG className={classes.icon} src={button.icon as string} />
-                        </Box>
-                        {isActiveButton(index) && index !== 2 && (
-                            <Box className={classes.active_text}>
+                            {index !== 2 && (
                                 <Text size="10px" weight="medium" lts={-1}>
                                     {button.label}
                                 </Text>
-                            </Box>
-                        )}
+                            )}
+                        </Box>
                     </UnstyledButton>
                 ))}
             </Box>
+            {!matchesMobile &&
+                <Box className={classes.profile_block} onClick={() => navigation("/profile")}>
+                    <Box className={classes.avatar_box}>
+                        <Avatar size="38px" src={userStore.getUser()?.avatar} />
+                    </Box>
+                    <Box className={classes.name_box} ml={6}>
+                        <Text size="medium" weight="regular" lts={-1}>{userStore.getUser()?.lastName} {userStore.getUser()?.firstName}</Text>
+                        <Text size="10px" weight="light" lts={-1} color="text-secondary">{userStore.getUser()?.studyGroup}</Text>
+                    </Box>
+                    <Box className={classes.expand_box} ml={6}>
+                        <ReactSVG className={classes.icon_profile} src={expandIcon} />
+                    </Box>
+                </Box>}
         </Box>
     );
 };

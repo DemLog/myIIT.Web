@@ -10,3 +10,4 @@ export { Menu } from "./Menu";
 export { Widget } from "./Widget";
 export { Block } from "./Block";
 export { TitleBlock } from "./TitleBlock";
+export { Panel } from "./Panel";

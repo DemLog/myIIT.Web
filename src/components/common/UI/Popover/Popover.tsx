@@ -9,9 +9,9 @@ import { Text } from "@components/UI";
 export const Popover: React.FC<PopoverProps> = (props: PopoverProps) => {
 
     return (
-        <MPopover classNames={{dropdown: classes.main_container}} shadow="md"
+        <MPopover classNames={{dropdown: classes.main_container}} shadow="md" position="bottom-end" onChange={props.onChange} opened={props.opened}
          transitionProps={{
-                transition: "scale-y"
+                transition: "scale-y",
         }}>
             <MPopover.Target>
                 {props.target}
@@ -20,8 +20,8 @@ export const Popover: React.FC<PopoverProps> = (props: PopoverProps) => {
             <MPopover.Dropdown p={6}>
                 {props.title &&
                     <Fragment>
-                        <Box className={classes.header} px={8} py={2}>
-                            <Text size="small" weight="regular">{props.title}</Text>
+                        <Box className={classes.header} px={8} py={8}>
+                            <Text size="medium" weight="medium">{props.title}</Text>
                         </Box>
                         <Divider w="100%" mb="xs" />
                     </Fragment>

@@ -1,12 +1,15 @@
 .main_container {
     position: fixed;
-    bottom: 1%;
+    bottom: 2%;
     left: 2%;
     width: 96%;
-    height: 56px;
-    background-color: var(--background-white);
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+    height: 59px;
+    background: rgb(248, 248, 248);
+    background: linear-gradient(180deg, rgba(248, 248, 248, 1) 0%, rgba(239, 239, 239, 1) 50%, rgba(248, 248, 248, 1) 100%);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     border-radius: var(--mantine-radius-lg);
+    display: flex;
+    justify-content: space-between;
 }
 
 .buttons_group {
@@ -21,20 +24,20 @@
     display: flex;
     align-items: center;
     border-radius: var(--mantine-radius-lg);
+    height: 48px;
+    width: 48px;
 
     &[data-active="true"] {
-        background-color: var(--primary-main);
-
         p,
         path {
-            color: var(--mantine-color-white) !important;
-            fill: var(--mantine-color-white) !important;
+            color: var(--primary-main) !important;
+            fill: var(--primary-main) !important;
         }
     }
 
     &[data-active="false"] {
         p {
-            color: var(--text-secondary) !important;
+            color: var(--text-primary) !important;
         }
     }
 
@@ -42,15 +45,15 @@
         height: 48px;
         width: 48px;
         border-radius: var(--mantine-radius-xl);
-        background: linear-gradient(145deg, rgba(91,108,240,1) 20%, rgba(149,220,251,1) 100%);
+        background: linear-gradient(145deg, rgba(91, 108, 240, 1) 20%, rgba(149, 220, 251, 1) 100%);
 
         path {
             fill: var(--mantine-color-white) !important;
         }
 
         &[data-active="true"] {
-            background: linear-gradient(145deg, rgba(231,231,231,1) 20%, rgba(169,169,169,1) 100%);
-    
+            background: linear-gradient(145deg, rgba(231, 231, 231, 1) 20%, rgba(169, 169, 169, 1) 100%);
+
             path {
                 fill: var(--primary-main) !important;
             }
@@ -61,13 +64,24 @@
 .button_content {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.profile_block {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &:active {
+        background-color: var(--disabled-light);
+    }
+}
+
 .icon {
-    height: 32px;
-    width: 32px;
+    height: 34px;
+    width: 34px;
 
     div {
         height: 100%;
@@ -85,5 +99,35 @@
 
     path {
         fill: var(--disabled-dark);
+    }
+}
+
+.icon_profile {
+    height: 18px;
+    width: 18px;
+    transform: rotate(270deg);
+
+    div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    path {
+        fill: var(--disabled-dark);
+    }
+}
+
+@media (min-width: 579px) {
+    .buttons_group {
+        width: 50%;
     }
 }

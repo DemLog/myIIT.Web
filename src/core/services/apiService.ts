@@ -1,3 +1,6 @@
+import { DefaultEventsMap } from '@socket.io/component-emitter';
+import io, { Socket } from 'socket.io-client';
+
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
 type ApiParams = {
@@ -7,13 +10,17 @@ type ApiParams = {
     token?: string;
 };
 
+type ApiParamsWs = {
+    token?: string;
+};
+
 type ApiResponse = {
     response_code: number;
     data: any;
     error?: { message: string };
 };
 
-const API_URL = "http://localhost:3000/methods/";
+const API_URL = "http://api.myiit.ru/methods/";
 
 const apiService = async ({method, url, body, token}: ApiParams): Promise<ApiResponse | null> => {
     try {
@@ -31,6 +38,17 @@ const apiService = async ({method, url, body, token}: ApiParams): Promise<ApiRes
 
         const response = await fetch(API_URL + url, options);
         return await response.json() as ApiResponse;
+
+    } catch (error) {
+        return null;
+    }
+    return null;
+};
+
+export const apiServiceWs = ({token}: ApiParamsWs): Socket<DefaultEventsMap, DefaultEventsMap> | null => {
+    try {
+        const newSocket = io(`http://api.myiit.ru?token=${token}`);
+        return newSocket;
 
     } catch (error) {
         return null;

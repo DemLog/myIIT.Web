@@ -13,6 +13,9 @@ export interface INavigationStore {
     services: IServiceLink[];
     active: number;
     namePage: string;
+    activePanel: boolean;
+    activePanelName: string;
+    backPanelFunc: () => void;
 }
 
 export const dataServiceLinks: IServiceLink[] = [
@@ -49,11 +52,17 @@ export class NavigationStore implements INavigationStore {
     services: IServiceLink[];
     active: number;
     namePage: string;
+    activePanel: boolean;
+    activePanelName: string;
+    backPanelFunc: () => void;
 
     constructor() {
         this.active = 0;
         this.services = dataServiceLinks;
         this.namePage = "Главный экран";
+        this.activePanel = false;
+        this.activePanelName = "";
+        this.backPanelFunc = () => {};
         makeAutoObservable(this);
     }
 
@@ -83,6 +92,34 @@ export class NavigationStore implements INavigationStore {
     );
 
     setNamePage = (name: string) => {
+        console.log(111111111)
         this.namePage = name;
     };
+
+    getActivePanel = (): boolean => {
+        return this.activePanel;
+    };
+
+    getActivePanelName = (): string => {
+        return this.activePanelName;
+    };
+
+    handleBackPanel = (): void=> {
+        this.backPanelFunc();
+        this.backPanelFunc = () => {};
+        this.activePanel = false;
+    };
+
+    setActivePanel = (active: boolean) => {
+        this.activePanel = active;
+        console.log(active);
+    };
+
+    setActivePanelName = (name: string) => {
+        this.activePanelName = name;
+    };
+
+    setBackPanelFunc = (func: () => void) => {
+        this.backPanelFunc = func;
+    }
 }

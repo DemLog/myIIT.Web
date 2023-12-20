@@ -45,16 +45,13 @@ const ProfilePageComponent: React.FC<ProfilePageProps> = (props: ProfilePageProp
         <Box className={classes.main_container}>
             <Box className={classes.content}>
                 {!matchesMobile && <Box className={classes.header_block}>
-                    <Box className={classes.title_block}>
-                        <TitleBlock title="Профиль" icon={profileIcon} />
-                    </Box>
                     {(!matchesPC && !matchesMobile) && (
                         <Box className={classes.action_block} ml="md">
                             <ProfileActionBlockTablet />
                         </Box>
                     )}
                 </Box>}
-                <Box className={classes.content_box} mt={matchesMobile ? 0 : "md"}>
+                <Box className={classes.content_box}>
                     <XMasonry center={false} targetBlockWidth={matchesPC ? 237 : 267} smartUpdateCeil={1000}>
                         <XBlock width={matchesMobile ? 2 : 1}>
                             {matchesMobile && <Box className={classes.profile_item}>

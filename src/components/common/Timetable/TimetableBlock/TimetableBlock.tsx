@@ -39,7 +39,7 @@ export const TimetableBlock: React.FC<TimetableBlockProps> = (props: TimetableBl
                         <CarouselTabs tabs={tabsList} activeTab={activeTab} onTabChange={setActiveTab} fullWidth={!matchesMobile} />
                     </Box>
                     {!matchesMobile && activeTab !== "week" && <Box className={classes.info_box}>
-                        <Text weight="medium">{activeTab === "today" ? "Среда, 13 декабря" : "Четверг, 14 декабря"}</Text>
+                        <Text weight="medium">{activeTab === "today" ? "Среда, 20 декабря" : "Четверг, 21 декабря"}</Text>
                     </Box>}
                     <Divider mt={32} />
                 </Box>
@@ -58,10 +58,10 @@ export const TimetableBlock: React.FC<TimetableBlockProps> = (props: TimetableBl
                 </CarouselTabsBlock>
                 <Box className={classes.footer} mt="xs">
                     <Box className={classes.timetable_info} p={6} mr="xs">
-                        <Text>Вторая неделя</Text>
+                        <Text>Первая неделя</Text>
                     </Box>
                     {activeTab !== "week" && <Box className={classes.timetable_info} p={6}>
-                        <Text>{activeTab === "today" ? "2 пары с 18:20 до 21:25" : "3 пары с 16:40 до 21:25"}</Text>
+                        <Text>{activeTab === "today" ? "Пары отсутсвуют" : "Пары отсутсвуют"}</Text>
                     </Box>}
                 </Box>
             </Box>

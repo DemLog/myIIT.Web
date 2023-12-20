@@ -28,12 +28,7 @@ const TimetablePageComponent: React.FC<TimetablePageProps> = (props: TimetablePa
     return (
         <Box className={classes.main_container}>
             <Box className={classes.content}>
-                {!matchesMobile && <Box className={classes.header_block}>
-                    <Box className={classes.title_block}>
-                        <TitleBlock title="Расписание" icon={timetableIcon} />
-                    </Box>
-                </Box>}
-                <Box className={classes.content_box} mt={matchesMobile ? "xs" : "md"}>
+                <Box className={classes.content_box}>
                     <XMasonry center={false} targetBlockWidth={matchesPC ? 237 : 267} smartUpdateCeil={1000}>
                     <XBlock width={3}>
                             <Box className={classes.timetable_item} mb={16}>
