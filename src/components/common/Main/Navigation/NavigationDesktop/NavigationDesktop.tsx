@@ -36,7 +36,7 @@ const NavigationDesktopComponent: React.FC<NavigationDesktopProps> = (props: Nav
                         <Box className={classes.button_content} p={8}>
                             <Box className={classes.button_left}>
                                 <ReactSVG className={classes.icon} src={button.icon as string} />
-                                <Text size="small" weight="medium" ml={6}>
+                                <Text size="medium" weight="medium" ml={6}>
                                     {button.label}
                                 </Text>
                             </Box>
