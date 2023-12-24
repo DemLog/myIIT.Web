@@ -1,0 +1,22 @@
+.category_item {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    padding: 10px 5px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.category_item:hover{
+    background-color: var(--primary-light);
+}
+
+.avatar {
+    display: block;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
