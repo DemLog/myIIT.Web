@@ -8,6 +8,7 @@ import {NotFoundPage} from "@pages/NotFound";
 import {ProfilePage} from "@pages/ProfilePage";
 import { TimetablePage } from "@pages/TimetablePage";
 import { EventsPage } from "@pages/EventsPage/EventsPage";
+import { MessagesPage } from "@pages/MessagesPage";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "/events",
                 element: <EventsPage />
+            },
+            {
+                path: "/messages",
+                element: <MessagesPage />
             },
             {
                 path: "*",
