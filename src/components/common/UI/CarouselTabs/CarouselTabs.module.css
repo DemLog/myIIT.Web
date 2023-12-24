@@ -1,6 +1,6 @@
 .main_container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scrollbar-width: none;
     position: absolute;

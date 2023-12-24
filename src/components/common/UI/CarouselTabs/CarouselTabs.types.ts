@@ -1,10 +1,13 @@
-import {CarouselTabsItemProps} from "@components/Other/CarouselTabs/CarouselTabsItem/props";
+import { CarouselTabsItemProps } from "./CarouselTabsItem";
 
-export type CarouselTabType = Omit<CarouselTabsItemProps, "index" | "active" | "onTabChange" | "width">
+export type CarouselTabType = Omit<
+  CarouselTabsItemProps,
+  "index" | "active" | "onTabChange" | "width"
+>;
 
 export interface CarouselTabsProps {
-    tabs:CarouselTabType[];
-    activeTab: string;
-    onTabChange: (value: string) => void;
-    fullWidth?: boolean;
+  tabs: CarouselTabType[];
+  activeTab: string;
+  onTabChange: (value: string) => void;
+  fullWidth?: boolean;
 }
