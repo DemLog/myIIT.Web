@@ -10,16 +10,18 @@ import { useStores } from "@core/hooks";
 
 const ProfileInfoBlockComponent: React.FC<ProfileInfoBlockProps> = (props: ProfileInfoBlockProps) => {
     const { userStore } = useStores();
+    console.log(userStore.user?.profileInfo.studyGroup)
 
     return (
         <Block title="Личный данные">
             <Box className={classes.content}>
-                <ProfileInfoBlockItem title="Отчество" value={userStore.getUser()?.patronymic} />
-                <ProfileInfoBlockItem title="Электронная почта" value={userStore.getUser()?.email} />
-                <ProfileInfoBlockItem title="Страна" value={userStore.getUser()?.country} />
-                <ProfileInfoBlockItem title="Статус" value={userStore.getUser()?.status} />
-                <ProfileInfoBlockItem title="Направление обучения" value={userStore.getUser()?.studyDirection} />
-                <ProfileInfoBlockItem title="Профиль" value={userStore.getUser()?.profile} />
+                <ProfileInfoBlockItem title="Отчество" value={userStore.user?.patronymic} />
+                <ProfileInfoBlockItem title="Электронная почта" value={userStore.user?.email} />
+                <ProfileInfoBlockItem title="Страна" value={userStore.user?.country} />
+                {userStore.user?.profileInfo.studyStatus && <ProfileInfoBlockItem title="Статус" value={userStore.user?.profileInfo.studyStatus} />}
+                {userStore.user?.profileInfo.studyDirection && <ProfileInfoBlockItem title="Направление обучения" value={userStore.user?.profileInfo.studyDirection} />}
+                {userStore.user?.profileInfo.studyProfile && <ProfileInfoBlockItem title="Профиль" value={userStore.user?.profileInfo.studyProfile} />}
+                {userStore.user?.profileInfo.position && <ProfileInfoBlockItem title="Должность" value={userStore.user?.profileInfo.position} />}
             </Box>
         </Block>
     );

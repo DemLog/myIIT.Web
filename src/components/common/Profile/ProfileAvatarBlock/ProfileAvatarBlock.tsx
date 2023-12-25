@@ -19,13 +19,13 @@ const ProfileAvatarBlockComponent: React.FC<ProfileAvatarBlockProps> = (props: P
         <Block>
             <Box className={classes.content}>
                 <Box className={classes.avatar_block} mb={matchesMobile ? 0 : "sm"}>
-                    <Avatar size={matchesMobile ? "180px" : "120px"} src={userStore.getUser()?.avatar} />
+                    <Avatar size={matchesMobile ? "180px" : "120px"} src={"https://api.myiit.ru" + userStore.user?.avatar} />
                 </Box>
                 <Box className={classes.name_block} mb="lg">
                     {/* <Skeleton h="24px" mb={4} radius="lg" /> */}
-                    <Text size="large" weight="regular">{userStore.getUser()?.lastName} {userStore.getUser()?.firstName}</Text>
+                    <Text size="large" weight="regular">{userStore.user?.lastName} {userStore.user?.firstName}</Text>
                     {/* <Skeleton h="18px" w="67px" radius="lg" /> */}
-                    <Text size="medium" weight="thin" color={getStyleColor("text-secondary")}>{userStore.getUser()?.studyGroup}</Text>
+                    <Text size="medium" weight="thin" color={getStyleColor("text-secondary")}>{userStore.user?.profileInfo.studyGroup}</Text>
                 </Box>
                 <Box className={classes.button_block}>
                     <Button classNames={{ root: classes.button_root }} color={getStyleColor("primary")} variant="outline" radius="lg" size={getStyleSize("small")}>

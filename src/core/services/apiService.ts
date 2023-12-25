@@ -20,7 +20,7 @@ type ApiResponse = {
     error?: { message: string };
 };
 
-const API_URL = "http://api.myiit.ru/methods/";
+const API_URL = "https://api.myiit.ru/methods/";
 
 const apiService = async ({method, url, body, token}: ApiParams): Promise<ApiResponse | null> => {
     try {
@@ -47,7 +47,7 @@ const apiService = async ({method, url, body, token}: ApiParams): Promise<ApiRes
 
 export const apiServiceWs = ({token}: ApiParamsWs): Socket<DefaultEventsMap, DefaultEventsMap> | null => {
     try {
-        const newSocket = io(`http://api.myiit.ru?token=${token}`);
+        const newSocket = io(`https://api.myiit.ru?token=${token}`);
         return newSocket;
 
     } catch (error) {

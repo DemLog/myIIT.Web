@@ -6,23 +6,20 @@ import { Box, ScrollArea, Stepper } from "@mantine/core";
 import { Text } from "@components/UI";
 import { TimetableBlockItem } from "../TimetableBlockItem";
 
+enum DayWeek {
+    Monday = "Понедельник",
+    Tuesday = "Вторник",
+    Wednesday = "Среда",
+    Thursday = "Четверг",
+    Friday = "Пятница",
+    Saturday = "Суббота",
+    Sunday = "Воскресенье"
+}
+
 export const TimetableBlockWeek: React.FC<TimetableBlockWeekProps> = (props: TimetableBlockWeekProps) => {
     return (
         <ScrollArea scrollbarSize={10} scrollHideDelay={0} w="100%">
-            {/* <Box className={classes.main} mt="xs">
-                <Stepper active={0} my="lg" orientation="vertical">
-                    <Stepper.Step label={
-                        <Box>
-                            <Text>9:00</Text>
-                            <Text>10:30</Text>
-                        </Box>
-                    } />
-                    <Stepper.Step label="9:00" />
-                    <Stepper.Step label="9:00" />
-                    <Stepper.Step label="9:00" />
-                    <Stepper.Step label="9:00" />
-                    <Stepper.Step label="9:00" />
-                </Stepper> 
+            {props.data && <Box className={classes.main} mt="xs">
                 <Box className={classes.content}>
                     <Box className={classes.header_day}>
                         <Box className={classes.header_day_item} p="xs">
@@ -45,35 +42,82 @@ export const TimetableBlockWeek: React.FC<TimetableBlockWeekProps> = (props: Tim
                         </Box>
                     </Box>
                     <Box className={classes.timetable_day} mt="xs">
+
                         <Box className={classes.timetable_day_item}>
-                            <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />
+                            {props.data.filter(t => t.dayWeek === DayWeek.Monday).length > 0 ?
+                                props.data.filter(t => t.dayWeek === DayWeek.Monday).map(l =>
+                                    <TimetableBlockItem
+                                        type={l.subject.type}
+                                        subject={l.subject.title}
+                                        teacher={l.lecture.map(t => `${t.lastName} ${t.firstName[0]}. ${t.patronymic[0]}.`).toString()}
+                                        cabinet={l.cabinet}
+                                        time={`${new Date(l.time.startTime).getHours()}:${new Date(l.time.startTime).getMinutes()}-${new Date(l.time.endTime).getHours()}:${new Date(l.time.endTime).getMinutes()}`} />
+                                ) :
+                                <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />}
                         </Box>
                         <Box className={classes.timetable_day_item}>
-                            <TimetableBlockItem type="Практика" subject="Экономика программной инженерии" teacher="Ткач Е. С." cabinet="2 корпус, 304" time="16:40-18:10" />
-                            <TimetableBlockItem type="Практика" subject="Экономика программной инженерии" teacher="Ткач Е. С." cabinet="2 корпус, 132" time="18:20-19:50" />
+                            {props.data.filter(t => t.dayWeek === DayWeek.Tuesday).length > 0 ?
+                                props.data.filter(t => t.dayWeek === DayWeek.Tuesday).map(l =>
+                                    <TimetableBlockItem
+                                        type={l.subject.type}
+                                        subject={l.subject.title}
+                                        teacher={l.lecture.map(t => `${t.lastName} ${t.firstName[0]}. ${t.patronymic[0]}.`).toString()}
+                                        cabinet={l.cabinet}
+                                        time={`${new Date(l.time.startTime).getHours()}:${new Date(l.time.startTime).getMinutes()}-${new Date(l.time.endTime).getHours()}:${new Date(l.time.endTime).getMinutes()}`} />
+                                ) :
+                                <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />}
                         </Box>
                         <Box className={classes.timetable_day_item}>
-                            <TimetableBlockItem type="Лекция" subject="Управление ИТ-проектами и жизненным циклом ПО" teacher="" cabinet="" time="18:20-19:50" />
-                            <TimetableBlockItem type="Практика" subject="Управление ИТ-проектами и жизненным циклом ПО" teacher="" cabinet="" time="19:55-21:25" />
+                            {props.data.filter(t => t.dayWeek === DayWeek.Wednesday).length > 0 ?
+                                props.data.filter(t => t.dayWeek === DayWeek.Wednesday).map(l =>
+                                    <TimetableBlockItem
+                                        type={l.subject.type}
+                                        subject={l.subject.title}
+                                        teacher={l.lecture.map(t => `${t.lastName} ${t.firstName[0]}. ${t.patronymic[0]}.`).toString()}
+                                        cabinet={l.cabinet}
+                                        time={`${new Date(l.time.startTime).getHours()}:${new Date(l.time.startTime).getMinutes()}-${new Date(l.time.endTime).getHours()}:${new Date(l.time.endTime).getMinutes()}`} />
+                                ) :
+                                <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />}
                         </Box>
                         <Box className={classes.timetable_day_item}>
-                            <TimetableBlockItem type="Лекция" subject="Анализ данных" teacher="Алюков С. В." cabinet="1 корпус, А-13" time="16:40-18:10" />
-                            <TimetableBlockItem type="Практика" subject="Анализ данных" teacher="Алюков С. В." cabinet="1 корпус, 132Б" time="18:20-19:50" />
-                            <TimetableBlockItem type="Практика" subject="Базы и хранилища данных" teacher="Нагуманова А. В." cabinet="1 корпус, 132" time="19:55-21:25" />
+                            {props.data.filter(t => t.dayWeek === DayWeek.Thursday).length > 0 ?
+                                props.data.filter(t => t.dayWeek === DayWeek.Thursday).map(l =>
+                                    <TimetableBlockItem
+                                        type={l.subject.type}
+                                        subject={l.subject.title}
+                                        teacher={l.lecture.map(t => `${t.lastName} ${t.firstName[0]}. ${t.patronymic[0]}.`).toString()}
+                                        cabinet={l.cabinet}
+                                        time={`${new Date(l.time.startTime).getHours()}:${new Date(l.time.startTime).getMinutes()}-${new Date(l.time.endTime).getHours()}:${new Date(l.time.endTime).getMinutes()}`} />
+                                ) :
+                                <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />}
                         </Box>
                         <Box className={classes.timetable_day_item}>
-                            <TimetableBlockItem type="Лекция" subject="Прикладная и оздоровительная физическая культура" teacher="Ярушин С. А." cabinet="" time="13:15-14:45" />
-                            <TimetableBlockItem type="Лекция" subject="Разработка интернет-приложений" teacher="Павличенков Е. А." cabinet="1 корпус, 132" time="18:20-19:50" />
-                            <TimetableBlockItem type="Практика" subject="Разработка интернет-приложений" teacher="Павличенков Е. А." cabinet="1 корпус, 132" time="19:55-21:25" />
+                            {props.data.filter(t => t.dayWeek === DayWeek.Friday).length > 0 ?
+                                props.data.filter(t => t.dayWeek === DayWeek.Friday).map(l =>
+                                    <TimetableBlockItem
+                                        type={l.subject.type}
+                                        subject={l.subject.title}
+                                        teacher={l.lecture.map(t => `${t.lastName} ${t.firstName[0]}. ${t.patronymic[0]}.`).toString()}
+                                        cabinet={l.cabinet}
+                                        time={`${new Date(l.time.startTime).getHours()}:${new Date(l.time.startTime).getMinutes()}-${new Date(l.time.endTime).getHours()}:${new Date(l.time.endTime).getMinutes()}`} />
+                                ) :
+                                <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />}
                         </Box>
                         <Box className={classes.timetable_day_item}>
-                            <TimetableBlockItem type="Практика" subject="Тестирование программного обеспечения" teacher="Булавин Р. С." cabinet="1 корпус, 132" time="9:40-11:10" />
-                            <TimetableBlockItem type="Практика" subject="Тестирование программного обеспечения" teacher="Булавин Р. С." cabinet="1 корпус, 132" time="11:20-12:50" />
-                            <TimetableBlockItem type="Лекция" subject="Тестирование программного обеспечения" teacher="Булавин Р. С." cabinet="" time="16:40-18:10" />
+                            {props.data.filter(t => t.dayWeek === DayWeek.Sunday).length > 0 ?
+                                props.data.filter(t => t.dayWeek === DayWeek.Sunday).map(l =>
+                                    <TimetableBlockItem
+                                        type={l.subject.type}
+                                        subject={l.subject.title}
+                                        teacher={l.lecture.map(t => `${t.lastName} ${t.firstName[0]}. ${t.patronymic[0]}.`).toString()}
+                                        cabinet={l.cabinet}
+                                        time={`${new Date(l.time.startTime).getHours()}:${new Date(l.time.startTime).getMinutes()}-${new Date(l.time.endTime).getHours()}:${new Date(l.time.endTime).getMinutes()}`} />
+                                ) :
+                                <TimetableBlockItem type="" subject="Свободный день" teacher="" cabinet="" time="" />}
                         </Box>
                     </Box>
                 </Box>
-            </Box> */}
-        </ScrollArea>
-    );
+            </Box>
+            }
+        </ScrollArea>);
 }

@@ -38,6 +38,11 @@ const DashboardPageComponent: React.FC<DashboardPageProps> = (props: DashboardPa
                         </Box>
                     </XBlock>
                 }
+                {/* <XBlock width={1}>
+                    <Box className={classes.dashboard_item} mx={matchesMobile ? 0 : 8} mb={16}>
+                        <WidgetTimetable />
+                    </Box>
+                </XBlock> */}
 {/* 
                 <XBlock width={1}>
                     <Box className={classes.dashboard_item} mx={matchesMobile ? 0 : 8} mb={16}>
