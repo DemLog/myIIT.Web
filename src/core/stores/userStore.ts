@@ -42,7 +42,7 @@ export class UserStore implements IUserStore {
 
             this.session = _session;
             this.ws = apiServiceWs({ token: _session.token });
-            this.ws.emit("subscribeToNotifications", '');
+            this.ws.emit("notification.subscribe", '');
             this.ws.on('notifications', (notification: IResponseNotification) => this.handleNotification(notification));
         } else {
             this.session = null;
@@ -63,7 +63,7 @@ export class UserStore implements IUserStore {
         Cookies.set("userId", session.userId.toString(), { expires: 365 });
         Cookies.set("moodleConsent", session.moodleConsent.toString(), { expires: 365 });
         this.ws = apiServiceWs({ token: session.token });
-        this.ws.emit("subscribeToNotifications", '');
+        this.ws.emit("notification.subscribe", '');
         this.ws.on('notifications', (notification: IResponseNotification) => this.handleNotification(notification));
     };
 

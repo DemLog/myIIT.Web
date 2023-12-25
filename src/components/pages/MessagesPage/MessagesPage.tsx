@@ -8,6 +8,7 @@ import { Box } from "@mantine/core";
 import { Messages } from "@components/Messages";
 
 import classes from "./MessagesPage.module.css";
+import { Text } from "@components/UI";
 
 export const MessagesPage = () => {
   const { navigationStore } = useStores();
@@ -19,7 +20,8 @@ export const MessagesPage = () => {
 
   return (
     <Box className={classes.messages_page}>
-      <Messages />
+      <Text size="large">Невозможно соединиться с базой!</Text>
+      <Text size="medium">Попробуйте позже...</Text>
     </Box>
   );
 };

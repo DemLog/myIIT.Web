@@ -17,7 +17,7 @@ const PopoversNotificationComponent: React.FC<PopoversNotificationProps> = (prop
 
     useEffect(() => {
         const loadingData = async () => {
-            const data = await apiService({ method: "GET", url: "notification.getNotificationUser", token: userStore.getSession()?.token });
+            const data = await apiService({ method: "GET", url: "notification.get", token: userStore.getSession()?.token });
             if (data?.response_code === 200) {
                 const notific = data.data as IResponseNotification[];
                 setNotification(notific.slice(0, 4));

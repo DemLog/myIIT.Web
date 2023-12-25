@@ -61,7 +61,7 @@ const EventsPageComponent: React.FC<TimetablePageProps> = (props: TimetablePageP
             <Box className={classes.content}>
                 <Box className={classes.content_box}>
                     <XMasonry center={false} targetBlockWidth={matchesPC ? 237 : 267} smartUpdateCeil={1000}>
-                        <XBlock width={3}>
+                        <XBlock width={4}>
                             <Box className={classes.timetable_item} mb={16}>
                                 <Block>
                                     <Box className={classes.item}>

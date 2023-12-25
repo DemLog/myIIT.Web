@@ -20,8 +20,8 @@ export const LoaderScreen: React.FC<LoaderScreenProps> = (props: LoaderScreenPro
                     }
                 })
             }
-        }}> <LoadingOverlay className={classes.main_container} {...props} zIndex={1000}
-                            overlayProps={{backgroundOpacity: 1}}
+        }}> <LoadingOverlay classNames={{overlay: classes.main_container}} {...props} zIndex={1000}
+                            overlayProps={{backgroundOpacity: 1, zIndex: 10000000}}
                             loaderProps={{type: 'custom', size: "80px"}}/>
         </MantineProvider>
 
